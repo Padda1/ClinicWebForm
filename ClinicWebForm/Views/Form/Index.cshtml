@@ -40,14 +40,4 @@
     </div>
 }
 
-@*<div>
-    <a class="label" href="/Form/ListAll">All Completed Forms</a>
-</div>*@
-
-<div id="form" class="panel panel-default">
-    @using (Ajax.BeginForm("_Submit", "Form", new AjaxOptions() { UpdateTargetId = "form" }))
-    {
-        @Html.AntiForgeryToken()
-    }
-    <div id="partialPlaceHolder" style="display:none;"> </div>
-</div>
+<div id="partialPlaceHolder" class="panel panel-default" style="display:none;"></div>
