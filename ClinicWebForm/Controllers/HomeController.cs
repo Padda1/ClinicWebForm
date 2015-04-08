@@ -26,5 +26,7 @@ namespace ClinicWebForm.Controllers
 
             return View();
         }
+
+
     }
 }

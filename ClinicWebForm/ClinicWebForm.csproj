@@ -173,6 +173,7 @@
     <Compile Include="Classes\Documents.cs" />
     <Compile Include="Classes\SelectDBObjects.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\FileController.cs" />
     <Compile Include="Controllers\FormController.cs" />
     <Compile Include="Controllers\HealthController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -294,6 +295,7 @@
     <Content Include="Views\Form\IndividualAdultHealthRecord\_ListIndividualAdultHealthRecord.cshtml" />
     <Content Include="Views\Form\MaternalandChildHealthRecord\_ListMaternalandChildHealthRecord.cshtml" />
     <Content Include="Views\Form\Referral\_ListReferralForm.cshtml" />
+    <Content Include="Views\File\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
