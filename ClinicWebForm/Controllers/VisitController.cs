@@ -1,4 +1,6 @@
-﻿using System;
+﻿using ClinicWebForm.Models;
+using ClinicWebForm.Utils;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,7 +13,15 @@ namespace ClinicWebForm.Controllers
         // GET: Visit
         public ActionResult Index()
         {
-            return View();
+            List<Visit> visits;
+
+            using (var connection = AppUtils.GetOpenConnection())
+            {
+                string sql = "select top 100 * from Visit";
+                visits = Dapper.SqlMapper.Query<Visit>(connection, sql).ToList();
+            }
+
+            return View(visits);
         }
 
         // GET: Visit/Details/5

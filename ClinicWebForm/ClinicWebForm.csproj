@@ -289,8 +289,8 @@
     <Content Include="Views\Form\_CreateMaternalandChildHealthRecord.cshtml" />
     <Content Include="Views\Form\_CreateReferralForm.cshtml" />
     <Content Include="Views\Form\ListAll.cshtml" />
-    <Content Include="Views\Visit\ListVisits.cshtml" />
     <Content Include="Views\Form\_ListHouseHoldRegistration.cshtml" />
+    <Content Include="Views\Visit\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
