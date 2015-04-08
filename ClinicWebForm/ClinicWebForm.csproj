@@ -284,16 +284,16 @@
     <Content Include="Views\Form\Index.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\IndividualMember2.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\Questions.cshtml" />
-    <Content Include="Views\Form\_CreateHouseHoldRegistration.cshtml" />
-    <Content Include="Views\Form\_CreateIndividualAdultHealthRecord.cshtml" />
-    <Content Include="Views\Form\_CreateMaternalandChildHealthRecord.cshtml" />
-    <Content Include="Views\Form\_CreateReferralForm.cshtml" />
+    <Content Include="Views\Form\HouseholdRegistration\_CreateHouseHoldRegistration.cshtml" />
+    <Content Include="Views\Form\IndividualAdultHealthRecord\_CreateIndividualAdultHealthRecord.cshtml" />
+    <Content Include="Views\Form\MaternalandChildHealthRecord\_CreateMaternalandChildHealthRecord.cshtml" />
+    <Content Include="Views\Form\Referral\_CreateReferralForm.cshtml" />
     <Content Include="Views\Form\ListAll.cshtml" />
-    <Content Include="Views\Form\_ListHouseHoldRegistration.cshtml" />
+    <Content Include="Views\Form\HouseholdRegistration\_ListHouseHoldRegistration.cshtml" />
     <Content Include="Views\Visit\Index.cshtml" />
-    <Content Include="Views\Form\_ListIndividualAdultHealthRecord.cshtml" />
-    <Content Include="Views\Form\_ListMaternalandChildHealthRecord.cshtml" />
-    <Content Include="Views\Form\_ListReferralForm.cshtml" />
+    <Content Include="Views\Form\IndividualAdultHealthRecord\_ListIndividualAdultHealthRecord.cshtml" />
+    <Content Include="Views\Form\MaternalandChildHealthRecord\_ListMaternalandChildHealthRecord.cshtml" />
+    <Content Include="Views\Form\Referral\_ListReferralForm.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

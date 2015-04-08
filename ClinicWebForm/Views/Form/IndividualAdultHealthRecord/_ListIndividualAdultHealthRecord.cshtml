@@ -1,0 +1,69 @@
+﻿@model IEnumerable<ClinicWebForm.Models.IndividualAdultHealthRecordViewModel>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.CHW)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Clinic)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Ward)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Household)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NextOfKin)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Head)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Visits)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Referrals)
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(model => item.CHW)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.Clinic)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.Ward)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.Household)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.NextOfKin)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.Head)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.Visits)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.Referrals)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            </td>
+        </tr>
+    }
+
+</table>
