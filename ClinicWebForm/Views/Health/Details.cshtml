@@ -1,0 +1,994 @@
+﻿@model ClinicWebForm.Models.Health
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Health</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.OFFICIAL_HOUSE_REG_NO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OFFICIAL_HOUSE_REG_NO)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CHW_ID_NO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CHW_ID_NO)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DATE_OF_VISIT)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DATE_OF_VISIT)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CHW_NAME)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CHW_NAME)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DISTRICT)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DISTRICT)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PROVINCE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PROVINCE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.WARD_DHIS)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.WARD_DHIS)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CLINIC_NAME)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CLINIC_NAME)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TEAM_NAME)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TEAM_NAME)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HOUSEHOLD_HEAD_NAME)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HOUSEHOLD_HEAD_NAME)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HOUSEHOLD_ADDRESS)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HOUSEHOLD_ADDRESS)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HOUSEHOLD_HEAD_TEL)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HOUSEHOLD_HEAD_TEL)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HOUSEHOLD_RESPONDENT)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HOUSEHOLD_RESPONDENT)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MEMBER_1_NAME)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MEMBER_1_NAME)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MEMBER_1_DOB)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MEMBER_1_DOB)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MEMBER_1_AGE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MEMBER_1_AGE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MEMBER_1_GENDER)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MEMBER_1_GENDER)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MEMBER_2_NAME)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MEMBER_2_NAME)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MEMBER_2_AGE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MEMBER_2_AGE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MEMBER_2_DOB)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MEMBER_2_DOB)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MEMBER_2_GENDER)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MEMBER_2_GENDER)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HOUSEHOLD_TOILET)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HOUSEHOLD_TOILET)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MEMBER_3_NAME)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MEMBER_3_NAME)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MEMBER_3_DOB)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MEMBER_3_DOB)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MEMBER_3_AGE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MEMBER_3_AGE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MEMBER_3_GENDER)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MEMBER_3_GENDER)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MEMBER_4_NAME)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MEMBER_4_NAME)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MEMBER_4_DOB)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MEMBER_4_DOB)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MEMBER_4_AGE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MEMBER_4_AGE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MEMBER_4_GENDER)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MEMBER_4_GENDER)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MEMBER_5_NAME)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MEMBER_5_NAME)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MEMBER_5_DOB)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MEMBER_5_DOB)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MEMBER_5_AGE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MEMBER_5_AGE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MEMBER_5_GENDER)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MEMBER_5_GENDER)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MEMBER_6_NAME)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MEMBER_6_NAME)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MEMBER_6_DOB)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MEMBER_6_DOB)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MEMBER_6_AGE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MEMBER_6_AGE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MEMBER_6_GENDER)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MEMBER_6_GENDER)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MEMBER_7_NAME)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MEMBER_7_NAME)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MEMBER_7_DOB)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MEMBER_7_DOB)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MEMBER_7_AGE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MEMBER_7_AGE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MEMBER_7_GENDER)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MEMBER_7_GENDER)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MEMBER_8_NAME)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MEMBER_8_NAME)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MEMBER_8_DOB)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MEMBER_8_DOB)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MEMBER_8_AGE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MEMBER_8_AGE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MEMBER_8_GENDER)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MEMBER_8_GENDER)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HOUSEHOLD_NUMBER_OF_PEOPLE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HOUSEHOLD_NUMBER_OF_PEOPLE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ALL_HOUSEHOLD_MEMBERS_REGISTERED)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ALL_HOUSEHOLD_MEMBERS_REGISTERED)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HOUSEHOLD_ELECTRICITY)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HOUSEHOLD_ELECTRICITY)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HOUSEHOLD_PUMPED_WATER)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HOUSEHOLD_PUMPED_WATER)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HOUSEHOLD_FRIDGE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HOUSEHOLD_FRIDGE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HOUSEHOLD_ROOMS)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HOUSEHOLD_ROOMS)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HOUSEHOLD_GRANTS)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HOUSEHOLD_GRANTS)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HOUSEHOLD_MEMBERS_THAT_WORK)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HOUSEHOLD_MEMBERS_THAT_WORK)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LEARNERS_SCHOOLS_1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LEARNERS_SCHOOLS_1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LEARNERS_SCHOOLS_2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LEARNERS_SCHOOLS_2)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MEMBER_WITH_PERSISTANT_COUGH)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MEMBER_WITH_PERSISTANT_COUGH)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MEMBER_WITH_NIGHT_SWEATS)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MEMBER_WITH_NIGHT_SWEATS)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MEMBER_WITH_WEIGH_LOSS)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MEMBER_WITH_WEIGH_LOSS)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MEMBER_WITH_FEVER)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MEMBER_WITH_FEVER)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MEMBER_WITH_LOSS_OF_APPITITE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MEMBER_WITH_LOSS_OF_APPITITE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MEMBER_WITH_TB_SYMPTOMS)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MEMBER_WITH_TB_SYMPTOMS)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MEMBER_NEEDING_HIV_TEST)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MEMBER_NEEDING_HIV_TEST)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MEMBERS_WITH_SOCIAL_GRANTS)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MEMBERS_WITH_SOCIAL_GRANTS)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MEMBERS_APPLYING_FOR_GRANTS)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MEMBERS_APPLYING_FOR_GRANTS)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MEMBER_WHO_WOULD_LIKE_HIV_TEST)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MEMBER_WHO_WOULD_LIKE_HIV_TEST)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MEMBER_NEEDING_FAMILY_PLANNING)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MEMBER_NEEDING_FAMILY_PLANNING)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MEMBER_WITH_UNMET_FAMILY_PLANNING_NEEDS)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MEMBER_WITH_UNMET_FAMILY_PLANNING_NEEDS)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MEMBER_WHO_NEEDS_HELP_WITH_DAILY_ACTIVITES)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MEMBER_WHO_NEEDS_HELP_WITH_DAILY_ACTIVITES)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MEMBER_THAT_NEEDS_ADL_HELP)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MEMBER_THAT_NEEDS_ADL_HELP)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HOUSEHOLD_CHILD_HEAD)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HOUSEHOLD_CHILD_HEAD)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AGE_OF_HOUSEHOLD_HEAD)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AGE_OF_HOUSEHOLD_HEAD)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HOUSEHOLD_PREGNANCY_OR_PERION_IN_6_WEEKS)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HOUSEHOLD_PREGNANCY_OR_PERION_IN_6_WEEKS)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MEMBERS_PREGNANT_IN_HOUSEHOLD)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MEMBERS_PREGNANT_IN_HOUSEHOLD)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BABY_DELIVERIES_IN_PAST_6_WEEKS)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BABY_DELIVERIES_IN_PAST_6_WEEKS)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NUMBER_OF_BABIES_IN_6_WEEKS)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NUMBER_OF_BABIES_IN_6_WEEKS)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HOUSEHOLD_CHILDREN_UNDER_5)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HOUSEHOLD_CHILDREN_UNDER_5)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NUMBER_OF_CHILDREN_UNDER_5_IN_HOUSEHOLD)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NUMBER_OF_CHILDREN_UNDER_5_IN_HOUSEHOLD)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MEMBER_TAKING_MEDICATION)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MEMBER_TAKING_MEDICATION)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MEMBER_NUMBER_TAKING_CHRONIC_MEDICATION)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MEMBER_NUMBER_TAKING_CHRONIC_MEDICATION)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NOTE_ON_HOUSEHOLD_SCREENING)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NOTE_ON_HOUSEHOLD_SCREENING)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FOLLOW_UP_DATE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FOLLOW_UP_DATE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PREGNANT_MEMBER_EXPECTED_DATE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PREGNANT_MEMBER_EXPECTED_DATE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MEMBER_NUMBER_CURRENTLY_PREGNANT)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MEMBER_NUMBER_CURRENTLY_PREGNANT)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.REFERALLS_ISSUED_FOR_PREGNANT_MEMBER)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.REFERALLS_ISSUED_FOR_PREGNANT_MEMBER)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DOB_MEMBER_BORN_WITHIN_6_WEEKS)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DOB_MEMBER_BORN_WITHIN_6_WEEKS)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MEMBER_NUMBER_BORN_WITHIN_THE_LAST_6_WEEKS)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MEMBER_NUMBER_BORN_WITHIN_THE_LAST_6_WEEKS)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BABY_WEIGHT_LESS_THAN_2500G)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BABY_WEIGHT_LESS_THAN_2500G)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MEMBER_NUMBER_BIRTH_WEIGHT_LESS_THAN_2500g)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MEMBER_NUMBER_BIRTH_WEIGHT_LESS_THAN_2500g)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NUMBER_OF_REFERRALS_FOR_UNDER_WEIGHT_BABIES)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NUMBER_OF_REFERRALS_FOR_UNDER_WEIGHT_BABIES)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CHILRDEN_UNDER_5_NOT_IMMUNIZED)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CHILRDEN_UNDER_5_NOT_IMMUNIZED)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CHILDREN_UNDER_5_WITH_NO_VIT_A_IN_6_MONTHS)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CHILDREN_UNDER_5_WITH_NO_VIT_A_IN_6_MONTHS)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.REFERRAL_FORMS_ISSUED_BABIES_BORN_WITHIN_6_WEEKS_IF_NECESSARY)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.REFERRAL_FORMS_ISSUED_BABIES_BORN_WITHIN_6_WEEKS_IF_NECESSARY)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MEMBER_NUMBER_WHOSE_IMMUNIZATION_IS_NOT_UP_TO_DATE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MEMBER_NUMBER_WHOSE_IMMUNIZATION_IS_NOT_UP_TO_DATE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.REFFERALS_ISSUED_FOR_CHILDREN_NOT_IMMUNIZED)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.REFFERALS_ISSUED_FOR_CHILDREN_NOT_IMMUNIZED)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MEMBER_NUMBER_NOT_HAD_VITAMIN_A_PROPHYLAXIS)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MEMBER_NUMBER_NOT_HAD_VITAMIN_A_PROPHYLAXIS)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CHILDREN_NOT_WEIGHED_OR_UNDER_WEIGHT)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CHILDREN_NOT_WEIGHED_OR_UNDER_WEIGHT)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MEMBER_NUMBER_NOT_WEIGHED_SHOWS_SIGNS_OF_MALNUTRITION)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MEMBER_NUMBER_NOT_WEIGHED_SHOWS_SIGNS_OF_MALNUTRITION)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CHILDREN_SUSPECTED_OF_ILLNESS_OR_CONCERNS)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CHILDREN_SUSPECTED_OF_ILLNESS_OR_CONCERNS)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.REFERRALS_FOR__VITAMIN_A_PROPHYLAXIS)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.REFERRALS_FOR__VITAMIN_A_PROPHYLAXIS)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.REFFERALS_FOR_NOT_WEIGHED_SHOWS_SIGNS_OF_MALNUTRITION)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.REFFERALS_FOR_NOT_WEIGHED_SHOWS_SIGNS_OF_MALNUTRITION)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MEMBER_NUMBER_SUSPECTED_OF_ILLNESS_OR_CONCERNS)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MEMBER_NUMBER_SUSPECTED_OF_ILLNESS_OR_CONCERNS)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.REFFERALS_FOR_NOT_WEIGHED_CHILDREN_SHOWS_SIGNS_OF_MALNUTRITION)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.REFFERALS_FOR_NOT_WEIGHED_CHILDREN_SHOWS_SIGNS_OF_MALNUTRITION)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HIV_EXPOSED_CHILDREN_WITHIN_6_WEEKS)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HIV_EXPOSED_CHILDREN_WITHIN_6_WEEKS)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MEMBER_NUMBER_NOT_HAD_PCR__WHO_IS_6_WEEKS_AND_OLDER_HIV_EXPOSED)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MEMBER_NUMBER_NOT_HAD_PCR__WHO_IS_6_WEEKS_AND_OLDER_HIV_EXPOSED)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.REFERRALS_FOR_HIV_EXPOSED_CHILDREN_6_WEEKS_OLDER_NOT__PCR_TEST)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.REFERRALS_FOR_HIV_EXPOSED_CHILDREN_6_WEEKS_OLDER_NOT__PCR_TEST)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MEMBERS_TAKING_TB_HIV_BP_DIABETES_MEDS)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MEMBERS_TAKING_TB_HIV_BP_DIABETES_MEDS)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MEMBER_NUMBER_TAKING_TB_HIV_BP_DIABETES_MEDS)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MEMBER_NUMBER_TAKING_TB_HIV_BP_DIABETES_MEDS)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.REFERRALS_FOR_TAKING_TB_HIV_BP_DIABETES_MEDS)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.REFERRALS_FOR_TAKING_TB_HIV_BP_DIABETES_MEDS)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MEMBER_DEFAULTING_FROM_TREATMENT)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MEMBER_DEFAULTING_FROM_TREATMENT)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MEMBER_NUMBER_THAT_DEFAULTED)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MEMBER_NUMBER_THAT_DEFAULTED)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.REFERRALS_ISSUED_FOR_DEFAULTING_MEMBER)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.REFERRALS_ISSUED_FOR_DEFAULTING_MEMBER)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ANY_OTHER_PROBLEMS)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ANY_OTHER_PROBLEMS)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MEMBER_NUMBER_WITH_IDENTIFIED_PROBLEMS)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MEMBER_NUMBER_WITH_IDENTIFIED_PROBLEMS)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.REFERRAL_FORMS_FOR_ANY_OTHER_PROBLEMS_IDENTIFIED)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.REFERRAL_FORMS_FOR_ANY_OTHER_PROBLEMS_IDENTIFIED)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.COMMENTS_LINE_1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.COMMENTS_LINE_1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.COMMENTS_LINE_2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.COMMENTS_LINE_2)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.COMMENTS_LINE_3)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.COMMENTS_LINE_3)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.COMMENTS_LINE_4)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.COMMENTS_LINE_4)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CHW_SIGN)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CHW_SIGN)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TL_NAME)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TL_NAME)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TL_VERIFY_DA)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TL_VERIFY_DA)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,57 @@
+﻿@model IEnumerable<ClinicWebForm.Models.HouseholdRegistrationViewModel>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.CHW)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Clinic)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Ward)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.House)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Members)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Questions)
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <th>
+                @Html.DisplayFor(model => item.CHW)
+            </th>
+            <th>
+                @Html.DisplayFor(model => item.Clinic)
+            </th>
+            <th>
+                @Html.DisplayFor(model => item.Ward)
+            </th>
+            <th>
+                @Html.DisplayFor(model => item.House)
+            </th>
+            <th>
+                @Html.DisplayFor(model => item.Members)
+            </th>
+            <th>
+                @Html.DisplayFor(model => item.Questions)
+            </th>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.CHW.Id }) |
+                @Html.ActionLink("Details", "Details", new { id = item.CHW.Id }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.CHW.Id })
+            </td>
+        </tr>
+    }
+
+</table>

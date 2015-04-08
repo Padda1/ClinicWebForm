@@ -1,0 +1,26 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+@*<div id="hitCountValue" class="label label-success">Active Users: 0</div>*@
+
+<div class="jumbotron">
+    <p class="lead">Cool home page things here</p>
+</div>
+
+<script src="~/Scripts/jquery-1.10.2.js"></script>
+<script src="~/Scripts/jquery.signalR-2.1.2.js"></script>
+<script type="text/javascript">
+    $(function () {
+        var connection = $.hubConnection();
+        var hub = connection.createHubProxy("hitCounter");
+
+        hub.on("onRecordHit", function (hitCount) {
+            $('#hitCountValue').text('Active Users: ' + hitCount);
+        });
+
+        connection.start(function () {
+            hub.invoke('recordHit');
+        });
+    })
+</script>

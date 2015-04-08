@@ -1,0 +1,12 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+
+namespace ClinicWebForm.Models
+{
+    public class FormsViewModel
+    {
+        public virtual List<Form> Forms { get; set; }
+    }
+}

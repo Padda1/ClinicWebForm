@@ -1,0 +1,43 @@
+﻿<script src="~/Scripts/jquery-1.10.2.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#dropdown').change(function () {
+
+            /* Get the selected value of dropdownlist */
+            var selectedID = $('#dropdown').val();
+
+            /* Request the partial view with .get request. */
+            $.get('/Form/SelectedFormType/' + selectedID, function (data) {
+
+                /* data is the pure html returned from action method, load it to your page */
+                $('#partialPlaceHolder').html(data);
+                /* little fade in effect */
+                $('#partialPlaceHolder').fadeIn('fast');
+            });
+
+        });
+    });
+</script>
+
+@{
+    ViewBag.Title = "ListAll";
+}
+
+<h2>All Forms</h2>
+
+@using (Html.BeginForm())
+{
+    <div class="panel panel-default">
+        <label>Form:</label>
+        <select id="dropdown" class="dropdown">
+            <option value="1">Household Registration</option>
+            <option value="2">Individual Adult Health Record</option>
+            <option value="3">Maternal and Child Health Record</option>
+            <option value="4">OT Template</option>
+            <option value="5">Referral Form</option>
+            <option value="6">Visit Tick</option>
+        </select>
+    </div>
+}
+
+<div id="partialPlaceHolder" style="display:none;"> </div>
