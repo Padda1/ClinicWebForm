@@ -291,6 +291,9 @@
     <Content Include="Views\Form\ListAll.cshtml" />
     <Content Include="Views\Form\_ListHouseHoldRegistration.cshtml" />
     <Content Include="Views\Visit\Index.cshtml" />
+    <Content Include="Views\Form\_ListIndividualAdultHealthRecord.cshtml" />
+    <Content Include="Views\Form\_ListMaternalandChildHealthRecord.cshtml" />
+    <Content Include="Views\Form\_ListReferralForm.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -1,0 +1,56 @@
+﻿@model IEnumerable<ClinicWebForm.Models.ReferralViewModel>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.CHW)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Clinic)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Ward)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Referral)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Member)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Questions)
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(model => item.CHW)
+        </td>
+        <td>
+            @Html.DisplayFor(model => item.Clinic)
+        </td>
+        <td>
+            @Html.DisplayFor(model => item.Ward)
+        </td>
+        <td>
+            @Html.DisplayFor(model => item.Referral)
+        </td>
+        <td>
+            @Html.DisplayFor(model => item.Member)
+        </td>
+        <td>
+            @Html.DisplayFor(model => item.Questions)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+        </td>
+    </tr>
+}
+
+</table>

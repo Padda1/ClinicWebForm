@@ -1,0 +1,62 @@
+﻿@model IEnumerable<ClinicWebForm.Models.MaternalandChildHealthRecordViewModel>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.CHW)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Clinic)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Ward)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Mother)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Child)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Visits)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Questions)
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(model => item.CHW)
+        </td>
+        <td>
+            @Html.DisplayFor(model => item.Clinic)
+        </td>
+        <td>
+            @Html.DisplayFor(model => item.Ward)
+        </td>
+        <td>
+            @Html.DisplayFor(model => item.Mother)
+        </td>
+        <td>
+            @Html.DisplayFor(model => item.Child)
+        </td>
+        <td>
+            @Html.DisplayFor(model => item.Visits)
+        </td>
+        <td>
+            @Html.DisplayFor(model => item.Questions)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+        </td>
+    </tr>
+}
+
+</table>
