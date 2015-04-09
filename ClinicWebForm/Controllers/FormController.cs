@@ -24,24 +24,24 @@ namespace ClinicWebForm.Controllers
 
         public ActionResult SelectedForm(int id)
         {
-            string viewName = "HouseholdRegistration/";
+            string viewName = "";
 
             switch (id)
             {
                 case 1:
-                    viewName += "_CreateHouseHoldRegistration";
+                    viewName += "HouseholdRegistration/_CreateHouseHoldRegistration";
                     break;
                 case 2:
-                    viewName += "_CreateIndividualAdultHealthRecord";
+                    viewName += "IndividualAdultHealthRecord/_CreateIndividualAdultHealthRecord";
                     break;
                 case 3:
-                    viewName += "_CreateMaternalandChildHealthRecord";
+                    viewName += "MaternalandChildHealthRecord/_CreateMaternalandChildHealthRecord";
                     break;
                 case 4:
                     viewName += "_CreateOTTemplate";
                     break;
                 case 5:
-                    viewName += "_CreateReferralForm";
+                    viewName += "Referral/_CreateReferralForm";
                     break;
                 case 6:
                     viewName += "_CreateVisitTick";
