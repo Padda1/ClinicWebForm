@@ -26,10 +26,10 @@ namespace ClinicWebForm.Classes
         public String OfficialHouseRegistrationNumber;
 
         [FieldTrim(TrimMode.Both)]
-        public String HouseholdStreetAddressLocationRow1;
+        public String CHWHouseholdIdentifierNo;
 
         [FieldTrim(TrimMode.Both)]
-        public String CHWHouseholdIdentifierNo;
+        public String CHWHouseholdIdentifierNo1;   
 
         [FieldTrim(TrimMode.Both)]
         public String DateOfVisit;
@@ -101,39 +101,39 @@ namespace ClinicWebForm.Classes
         public String TeamLeaderConsultDate;
 
         [FieldTrim(TrimMode.Both)]
-        public String Province;
+        public String TeamLeaderSignature;
 
-        [FieldTrim(TrimMode.Both)]
-        public String Province;
+        //[FieldTrim(TrimMode.Both)]
+        //public String Province;
 
-        [FieldTrim(TrimMode.Both)]
-        public String Province;
+        //[FieldTrim(TrimMode.Both)]
+        //public String Province;
 
-        [FieldTrim(TrimMode.Both)]
-        public String Province;
+        //[FieldTrim(TrimMode.Both)]
+        //public String Province;
 
-        [FieldTrim(TrimMode.Both)]
-        public String Province;
+        //[FieldTrim(TrimMode.Both)]
+        //public String Province;
 
-        [FieldTrim(TrimMode.Both)]
-        public String Province;
+        //[FieldTrim(TrimMode.Both)]
+        //public String Province;
 
-        [FieldTrim(TrimMode.Both)]
-        public String Province;
+        //[FieldTrim(TrimMode.Both)]
+        //public String Province;
 
-        [FieldTrim(TrimMode.Both)]
-        public String Province;
+        //[FieldTrim(TrimMode.Both)]
+        //public String Province;
 
-        [FieldTrim(TrimMode.Both)]
-        public String Province;
+        //[FieldTrim(TrimMode.Both)]
+        //public String Province;
 
-        [FieldTrim(TrimMode.Both)]
-        public String Province;
+        //[FieldTrim(TrimMode.Both)]
+        //public String Province;
 
-        [FieldTrim(TrimMode.Both)]
-        public String Province;
+        //[FieldTrim(TrimMode.Both)]
+        //public String Province;
 
-        [FieldTrim(TrimMode.Both)]
-        public String Province;
+        //[FieldTrim(TrimMode.Both)]
+        //public String Province;
     }
 }

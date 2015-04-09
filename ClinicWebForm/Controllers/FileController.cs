@@ -1,4 +1,7 @@
-﻿using FileHelpers;
+﻿using ClinicWebForm.Classes;
+using ClinicWebForm.Models;
+using ClinicWebForm.Utils;
+using FileHelpers;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -38,8 +41,7 @@ namespace ClinicWebForm.Controllers
 
         private DataTable LoadIntoCollection(string path)
         {
-            //TODO: Update to use the actual file
-            FileHelperEngine engine = new FileHelperEngine(typeof(string));
+            FileHelperEngine engine = new FileHelperEngine(typeof(FileTemplate));
             return engine.ReadFileAsDT(path);
         }
 
@@ -49,7 +51,22 @@ namespace ClinicWebForm.Controllers
 
             foreach(DataRow row in data.Rows)
             {
-                //TODO: Split columns into objects
+                Clinic clinic = new Clinic();
+                clinic.ClinicDescription = row["ClinicName"].ToString();
+                clinic.Active = true;
+
+                AppUtils.InsertClinic(clinic);
+
+                Ward ward = new Ward();
+                ward.WardDescription = row["WardNo"].ToString();
+
+                AppUtils.InsertWard(ward);
+
+                CHW chw = new CHW();
+                chw.HouseholdIdNumber = row["CHWHouseholdIdentifierNo"].ToString();
+                chw.Name = row["CHWName"].ToString();
+
+                AppUtils.InsertCHW(chw);
             }
         }
     }
