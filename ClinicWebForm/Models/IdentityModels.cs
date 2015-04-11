@@ -20,6 +20,9 @@ namespace ClinicWebForm.Models
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
+        public DbSet<Health> Health { get; set; }
+        public DbSet<Visit> Visits { get; set; }
+
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false) //DefaultConnection - Default ConnectionString change to healthConnStr
         {

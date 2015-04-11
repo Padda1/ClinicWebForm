@@ -7,14 +7,13 @@ using System.Threading.Tasks;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
-using ClinicWebForm.DBContext;
 using ClinicWebForm.Models;
 
 namespace ClinicWebForm.Controllers
 {
     public class HealthController : Controller
     {
-        private HealthContext db = new HealthContext();
+        private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Health
         public async Task<ActionResult> Index()
