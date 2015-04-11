@@ -151,7 +151,7 @@ namespace ClinicWebForm.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = model.Username, Email = model.Username };
+                var user = new ApplicationUser { UserName = model.Username }; 
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {

@@ -51,327 +51,327 @@ namespace ClinicWebForm.Controllers
             return PartialView(viewName);
         }
 
-        public ActionResult SubmitHouseHoldRegistration(HouseholdRegistrationViewModel householdRegistration)
-        {
-            try
-            {
-                using (var connection = AppUtils.GetOpenConnection())
-                {
-                    //Insert CHW 
-                    CHW chw = householdRegistration.CHW;
+        //public ActionResult SubmitHouseHoldRegistration(HouseholdRegistrationViewModel householdRegistration)
+        //{
+        //    try
+        //    {
+        //        using (var connection = AppUtils.GetOpenConnection())
+        //        {
+        //            //Insert CHW 
+        //            CHW chw = householdRegistration.CHW;
 
-                    string sql = @"INSERT INTO CHW (HouseholdIdNumber,Name) VALUES";
-                    sql += "(@HouseholdIdNumber, @Name)";
+        //            string sql = @"INSERT INTO CHW (HouseholdIdNumber,Name) VALUES";
+        //            sql += "(@HouseholdIdNumber, @Name)";
 
-                    Dapper.SqlMapper.Execute(connection, sql, chw);
+        //            Dapper.SqlMapper.Execute(connection, sql, chw);
 
-                    //Insert Clinic
-                    Clinic clinic = householdRegistration.Clinic;
+        //            //Insert Clinic
+        //            Clinic clinic = householdRegistration.Clinic;
 
-                    sql = @"INSERT INTO clinic (ClinicDescription,Active) VALUES";
-                    sql += "(@ClinicDescription, @Active)";
+        //            sql = @"INSERT INTO clinic (ClinicDescription,Active) VALUES";
+        //            sql += "(@ClinicDescription, @Active)";
 
-                    Dapper.SqlMapper.Execute(connection, sql, clinic);
+        //            Dapper.SqlMapper.Execute(connection, sql, clinic);
 
-                    //Insert Ward 
-                    Ward ward = householdRegistration.Ward;
+        //            //Insert Ward 
+        //            Ward ward = householdRegistration.Ward;
 
-                    sql = @"INSERT INTO Ward (HouseholdIdNumber,Name) VALUES";
-                    sql += "(@HouseholdIdNumber, @Name)";
+        //            sql = @"INSERT INTO Ward (HouseholdIdNumber,Name) VALUES";
+        //            sql += "(@HouseholdIdNumber, @Name)";
 
-                    Dapper.SqlMapper.Execute(connection, sql, ward);
+        //            Dapper.SqlMapper.Execute(connection, sql, ward);
 
-                    //Insert House 
-                    House house = householdRegistration.House;
+        //            //Insert House 
+        //            House house = householdRegistration.House;
 
-                    sql = @"INSERT INTO House (HouseholdId,Electricity,PipedWater,Toilet,Fridge,Rooms,AmountOfGrants,AmountOfWorkingMembers,NameOfSchools) VALUES";
-                    sql += "(@Household.Id,@Electricity,@PipedWater,@Toilet,@Fridge,@Rooms,@AmountOfGrants,@AmountOfWorkingMembers,@NameOfSchools)";
+        //            sql = @"INSERT INTO House (HouseholdId,Electricity,PipedWater,Toilet,Fridge,Rooms,AmountOfGrants,AmountOfWorkingMembers,NameOfSchools) VALUES";
+        //            sql += "(@Household.Id,@Electricity,@PipedWater,@Toilet,@Fridge,@Rooms,@AmountOfGrants,@AmountOfWorkingMembers,@NameOfSchools)";
 
-                    Dapper.SqlMapper.Execute(connection, sql, house);
+        //            Dapper.SqlMapper.Execute(connection, sql, house);
 
-                    //Insert IndividualMember 
-                    foreach (var individualMember in householdRegistration.Members)
-                    {
-                        sql = @"INSERT INTO IndividualMember (HouseholdId,VisitId,NextOfKinId,RelationshipStatusId,Name,DOB,Age,Gender,Tel,BirthWeight,ReceivingGrant,Head) VALUES";
-                        sql += "(@Household.Id,@Visit.Id,@NextOfKin.Id,@RelationshipStatus.Id,@Name,@DOB,@Age,@Gender,@Tel,@BirthWeight,@ReceivingGrant,@Head)";
+        //            //Insert IndividualMember 
+        //            foreach (var individualMember in householdRegistration.Members)
+        //            {
+        //                sql = @"INSERT INTO IndividualMember (HouseholdId,VisitId,NextOfKinId,RelationshipStatusId,Name,DOB,Age,Gender,Tel,BirthWeight,ReceivingGrant,Head) VALUES";
+        //                sql += "(@Household.Id,@Visit.Id,@NextOfKin.Id,@RelationshipStatus.Id,@Name,@DOB,@Age,@Gender,@Tel,@BirthWeight,@ReceivingGrant,@Head)";
 
-                        Dapper.SqlMapper.Execute(connection, sql, individualMember);
-                    }
+        //                Dapper.SqlMapper.Execute(connection, sql, individualMember);
+        //            }
 
-                    //Insert Question 
-                    foreach (var question in householdRegistration.Questions)
-                    {
-                        sql = @"INSERT INTO Questions (QuestionCategoryId,QuestionDescription,Active) VALUES";
-                        sql += "(@QuestionCategory.Id,@QuestionDescription,@Active)";
+        //            //Insert Question 
+        //            foreach (var question in householdRegistration.Questions)
+        //            {
+        //                sql = @"INSERT INTO Questions (QuestionCategoryId,QuestionDescription,Active) VALUES";
+        //                sql += "(@QuestionCategory.Id,@QuestionDescription,@Active)";
 
-                        Dapper.SqlMapper.Execute(connection, sql, question);
-                    }
-                }
+        //                Dapper.SqlMapper.Execute(connection, sql, question);
+        //            }
+        //        }
 
-                return RedirectToAction("Index", "Home");
-            }
-            catch
-            {
-                return PartialView("_CreateHouseHoldRegistration");
-            }
-        }
+        //        return RedirectToAction("Index", "Home");
+        //    }
+        //    catch
+        //    {
+        //        return PartialView("_CreateHouseHoldRegistration");
+        //    }
+        //}
 
-        public ActionResult SubmitIndividualAdultHealthRecord(IndividualAdultHealthRecordViewModel individualAdultHealthRecord)
-        {
-            try
-            {
-                using (var connection = AppUtils.GetOpenConnection())
-                {
-                    //Insert CHW 
-                    CHW chw = individualAdultHealthRecord.CHW;
+        //public ActionResult SubmitIndividualAdultHealthRecord(IndividualAdultHealthRecordViewModel individualAdultHealthRecord)
+        //{
+        //    try
+        //    {
+        //        using (var connection = AppUtils.GetOpenConnection())
+        //        {
+        //            //Insert CHW 
+        //            CHW chw = individualAdultHealthRecord.CHW;
 
-                    string sql = @"INSERT INTO CHW (HouseholdIdNumber,Name) VALUES";
-                    sql += "(@HouseholdIdNumber, @Name)";
+        //            string sql = @"INSERT INTO CHW (HouseholdIdNumber,Name) VALUES";
+        //            sql += "(@HouseholdIdNumber, @Name)";
 
-                    Dapper.SqlMapper.Execute(connection, sql, chw);
+        //            Dapper.SqlMapper.Execute(connection, sql, chw);
 
-                    //Insert Clinic
-                    Clinic clinic = individualAdultHealthRecord.Clinic;
+        //            //Insert Clinic
+        //            Clinic clinic = individualAdultHealthRecord.Clinic;
 
-                    sql = @"INSERT INTO clinic (ClinicDescription,Active) VALUES";
-                    sql += "(@ClinicDescription, @Active)";
+        //            sql = @"INSERT INTO clinic (ClinicDescription,Active) VALUES";
+        //            sql += "(@ClinicDescription, @Active)";
 
-                    Dapper.SqlMapper.Execute(connection, sql, clinic);
+        //            Dapper.SqlMapper.Execute(connection, sql, clinic);
 
-                    //Insert Ward 
-                    Ward ward = individualAdultHealthRecord.Ward;
+        //            //Insert Ward 
+        //            Ward ward = individualAdultHealthRecord.Ward;
 
-                    sql = @"INSERT INTO Ward (HouseholdIdNumber,Name) VALUES";
-                    sql += "(@HouseholdIdNumber, @Name)";
+        //            sql = @"INSERT INTO Ward (HouseholdIdNumber,Name) VALUES";
+        //            sql += "(@HouseholdIdNumber, @Name)";
 
-                    Dapper.SqlMapper.Execute(connection, sql, ward);
+        //            Dapper.SqlMapper.Execute(connection, sql, ward);
 
-                    //Insert Household
-                    Household household = individualAdultHealthRecord.Household;
+        //            //Insert Household
+        //            Household household = individualAdultHealthRecord.Household;
 
-                    sql = @"INSERT INTO Household (VisitId,Address,RespondentId,AllMembersRegistered,PregnancyPerionIn6Weeks,Note) VALUES";
-                    sql += "(@Visit.Id,@Address,@RespondentId,@AllMembersRegistered,@PregnancyPerionIn6Weeks,@Note)";
+        //            sql = @"INSERT INTO Household (VisitId,Address,RespondentId,AllMembersRegistered,PregnancyPerionIn6Weeks,Note) VALUES";
+        //            sql += "(@Visit.Id,@Address,@RespondentId,@AllMembersRegistered,@PregnancyPerionIn6Weeks,@Note)";
 
-                    Dapper.SqlMapper.Execute(connection, sql, household);
+        //            Dapper.SqlMapper.Execute(connection, sql, household);
 
-                    //Insert NextOfKin 
-                    NextOfKin nextOfKin = individualAdultHealthRecord.NextOfKin;
+        //            //Insert NextOfKin 
+        //            NextOfKin nextOfKin = individualAdultHealthRecord.NextOfKin;
 
-                    sql = @"INSERT INTO NextOfKin (Name,ContactNumber) VALUES";
-                    sql += "(@Name,@ContactNumber)";
+        //            sql = @"INSERT INTO NextOfKin (Name,ContactNumber) VALUES";
+        //            sql += "(@Name,@ContactNumber)";
 
-                    Dapper.SqlMapper.Execute(connection, sql, nextOfKin);
+        //            Dapper.SqlMapper.Execute(connection, sql, nextOfKin);
 
-                    //Insert IndividualMember 
-                    IndividualMember member = individualAdultHealthRecord.Head;
+        //            //Insert IndividualMember 
+        //            IndividualMember member = individualAdultHealthRecord.Head;
 
-                    sql = @"INSERT INTO IndividualMember (HouseholdId,VisitId,NextOfKinId,RelationshipStatusId,Name,DOB,Age,Gender,Tel,BirthWeight,ReceivingGrant,Head) VALUES";
-                    sql += "(@Household.Id,@Visit.Id,@NextOfKin.Id,@RelationshipStatus.Id,@Name,@DOB,@Age,@Gender,@Tel,@BirthWeight,@ReceivingGrant,@Head)";
+        //            sql = @"INSERT INTO IndividualMember (HouseholdId,VisitId,NextOfKinId,RelationshipStatusId,Name,DOB,Age,Gender,Tel,BirthWeight,ReceivingGrant,Head) VALUES";
+        //            sql += "(@Household.Id,@Visit.Id,@NextOfKin.Id,@RelationshipStatus.Id,@Name,@DOB,@Age,@Gender,@Tel,@BirthWeight,@ReceivingGrant,@Head)";
 
-                    Dapper.SqlMapper.Execute(connection, sql, member);
+        //            Dapper.SqlMapper.Execute(connection, sql, member);
 
-                    //Insert Visits 
-                    foreach (var visits in individualAdultHealthRecord.Visits)
-                    {
-                        sql = @"INSERT INTO Visits (UserId,CHWId,PreviousVisitId,ActionPerformedId,VisitDate) VALUES";
-                        sql += "(@User.Id,@CHW.Id,@PreviousVisitId,@ActionPerformedId,@VisitDate)";
+        //            //Insert Visits 
+        //            foreach (var visits in individualAdultHealthRecord.Visits)
+        //            {
+        //                sql = @"INSERT INTO Visits (UserId,CHWId,PreviousVisitId,ActionPerformedId,VisitDate) VALUES";
+        //                sql += "(@User.Id,@CHW.Id,@PreviousVisitId,@ActionPerformedId,@VisitDate)";
 
-                        Dapper.SqlMapper.Execute(connection, sql, visits);
-                    }
+        //                Dapper.SqlMapper.Execute(connection, sql, visits);
+        //            }
 
-                    //Insert Referrals 
-                    foreach (var referral in individualAdultHealthRecord.Referrals)
-                    {
-                        sql = @"INSERT INTO Referral (VisitId,ReferralReasonId,ReferralOutcome,ReferredTo,BackReferralReceived) VALUES";
-                        sql += "(@Visit.Id,@ReferralReason.Id,@ReferralOutcome,@ReferredTo,@BackReferralReceived)";
+        //            //Insert Referrals 
+        //            foreach (var referral in individualAdultHealthRecord.Referrals)
+        //            {
+        //                sql = @"INSERT INTO Referral (VisitId,ReferralReasonId,ReferralOutcome,ReferredTo,BackReferralReceived) VALUES";
+        //                sql += "(@Visit.Id,@ReferralReason.Id,@ReferralOutcome,@ReferredTo,@BackReferralReceived)";
 
-                        Dapper.SqlMapper.Execute(connection, sql, referral);
-                    }
-                }
+        //                Dapper.SqlMapper.Execute(connection, sql, referral);
+        //            }
+        //        }
 
-                return RedirectToAction("Index", "Home");
-            }
-            catch
-            {
-                return PartialView("_CreateIndividualAdultHealthRecord");
-            }
-        }
+        //        return RedirectToAction("Index", "Home");
+        //    }
+        //    catch
+        //    {
+        //        return PartialView("_CreateIndividualAdultHealthRecord");
+        //    }
+        //}
 
-        public ActionResult SubmitMaternalandChildHealthRecord(MaternalandChildHealthRecordViewModel maternalAndChild)
-        {
-            try
-            {
-                using (var connection = AppUtils.GetOpenConnection())
-                {
-                    //Insert CHW 
-                    CHW chw = maternalAndChild.CHW;
+        //public ActionResult SubmitMaternalandChildHealthRecord(MaternalandChildHealthRecordViewModel maternalAndChild)
+        //{
+        //    try
+        //    {
+        //        using (var connection = AppUtils.GetOpenConnection())
+        //        {
+        //            //Insert CHW 
+        //            CHW chw = maternalAndChild.CHW;
 
-                    string sql = @"INSERT INTO CHW (HouseholdIdNumber,Name) VALUES";
-                    sql += "(@HouseholdIdNumber, @Name)";
+        //            string sql = @"INSERT INTO CHW (HouseholdIdNumber,Name) VALUES";
+        //            sql += "(@HouseholdIdNumber, @Name)";
 
-                    Dapper.SqlMapper.Execute(connection, sql, chw);
+        //            Dapper.SqlMapper.Execute(connection, sql, chw);
 
-                    //Insert Clinic
-                    Clinic clinic = maternalAndChild.Clinic;
+        //            //Insert Clinic
+        //            Clinic clinic = maternalAndChild.Clinic;
 
-                    sql = @"INSERT INTO clinic (ClinicDescription,Active) VALUES";
-                    sql += "(@ClinicDescription, @Active)";
+        //            sql = @"INSERT INTO clinic (ClinicDescription,Active) VALUES";
+        //            sql += "(@ClinicDescription, @Active)";
 
-                    Dapper.SqlMapper.Execute(connection, sql, clinic);
+        //            Dapper.SqlMapper.Execute(connection, sql, clinic);
 
-                    //Insert Ward 
-                    Ward ward = maternalAndChild.Ward;
+        //            //Insert Ward 
+        //            Ward ward = maternalAndChild.Ward;
 
-                    sql = @"INSERT INTO Ward (HouseholdIdNumber,Name) VALUES";
-                    sql += "(@HouseholdIdNumber, @Name)";
+        //            sql = @"INSERT INTO Ward (HouseholdIdNumber,Name) VALUES";
+        //            sql += "(@HouseholdIdNumber, @Name)";
 
-                    Dapper.SqlMapper.Execute(connection, sql, ward);
+        //            Dapper.SqlMapper.Execute(connection, sql, ward);
 
-                    //Insert IndividualMember Mother
-                    IndividualMember mother = maternalAndChild.Mother;
+        //            //Insert IndividualMember Mother
+        //            IndividualMember mother = maternalAndChild.Mother;
 
-                    sql = @"INSERT INTO IndividualMember (HouseholdId,VisitId,NextOfKinId,RelationshipStatusId,Name,DOB,Age,Gender,Tel,BirthWeight,ReceivingGrant,Head) VALUES";
-                    sql += "(@Household.Id,@Visit.Id,@NextOfKin.Id,@RelationshipStatus.Id,@Name,@DOB,@Age,@Gender,@Tel,@BirthWeight,@ReceivingGrant,@Head)";
+        //            sql = @"INSERT INTO IndividualMember (HouseholdId,VisitId,NextOfKinId,RelationshipStatusId,Name,DOB,Age,Gender,Tel,BirthWeight,ReceivingGrant,Head) VALUES";
+        //            sql += "(@Household.Id,@Visit.Id,@NextOfKin.Id,@RelationshipStatus.Id,@Name,@DOB,@Age,@Gender,@Tel,@BirthWeight,@ReceivingGrant,@Head)";
 
-                    Dapper.SqlMapper.Execute(connection, sql, mother);
+        //            Dapper.SqlMapper.Execute(connection, sql, mother);
 
-                    //Insert IndividualMember Child
-                    IndividualMember child= maternalAndChild.Child;
+        //            //Insert IndividualMember Child
+        //            IndividualMember child= maternalAndChild.Child;
 
-                    sql = @"INSERT INTO IndividualMember (HouseholdId,VisitId,NextOfKinId,RelationshipStatusId,Name,DOB,Age,Gender,Tel,BirthWeight,ReceivingGrant,Head) VALUES";
-                    sql += "(@Household.Id,@Visit.Id,@NextOfKin.Id,@RelationshipStatus.Id,@Name,@DOB,@Age,@Gender,@Tel,@BirthWeight,@ReceivingGrant,@Head)";
+        //            sql = @"INSERT INTO IndividualMember (HouseholdId,VisitId,NextOfKinId,RelationshipStatusId,Name,DOB,Age,Gender,Tel,BirthWeight,ReceivingGrant,Head) VALUES";
+        //            sql += "(@Household.Id,@Visit.Id,@NextOfKin.Id,@RelationshipStatus.Id,@Name,@DOB,@Age,@Gender,@Tel,@BirthWeight,@ReceivingGrant,@Head)";
 
-                    Dapper.SqlMapper.Execute(connection, sql, child);
+        //            Dapper.SqlMapper.Execute(connection, sql, child);
 
-                    //Insert Visits 
-                    foreach (var visits in maternalAndChild.Visits)
-                    {
-                        sql = @"INSERT INTO Visits (UserId,CHWId,PreviousVisitId,ActionPerformedId,VisitDate) VALUES";
-                        sql += "(@User.Id,@CHW.Id,@PreviousVisitId,@ActionPerformedId,@VisitDate)";
+        //            //Insert Visits 
+        //            foreach (var visits in maternalAndChild.Visits)
+        //            {
+        //                sql = @"INSERT INTO Visits (UserId,CHWId,PreviousVisitId,ActionPerformedId,VisitDate) VALUES";
+        //                sql += "(@User.Id,@CHW.Id,@PreviousVisitId,@ActionPerformedId,@VisitDate)";
 
-                        Dapper.SqlMapper.Execute(connection, sql, visits);
-                    }
+        //                Dapper.SqlMapper.Execute(connection, sql, visits);
+        //            }
 
-                    //Insert Question 
-                    foreach (var question in maternalAndChild.Questions)
-                    {
-                        sql = @"INSERT INTO Questions (QuestionCategoryId,QuestionDescription,Active) VALUES";
-                        sql += "(@QuestionCategory.Id,@QuestionDescription,@Active)";
+        //            //Insert Question 
+        //            foreach (var question in maternalAndChild.Questions)
+        //            {
+        //                sql = @"INSERT INTO Questions (QuestionCategoryId,QuestionDescription,Active) VALUES";
+        //                sql += "(@QuestionCategory.Id,@QuestionDescription,@Active)";
 
-                        Dapper.SqlMapper.Execute(connection, sql, question);
-                    }
-                }
+        //                Dapper.SqlMapper.Execute(connection, sql, question);
+        //            }
+        //        }
 
-                return RedirectToAction("Index", "Home");
-            }
-            catch
-            {
-                return PartialView("_CreateMaternalandChildHealthRecord");
-            }
-        }
+        //        return RedirectToAction("Index", "Home");
+        //    }
+        //    catch
+        //    {
+        //        return PartialView("_CreateMaternalandChildHealthRecord");
+        //    }
+        //}
 
-        public ActionResult SubmitReferral(ReferralViewModel referral)
-        {
-            try
-            {
-                using (var connection = AppUtils.GetOpenConnection())
-                {
-                    //Insert CHW 
-                    CHW chw = referral.CHW;
+        //public ActionResult SubmitReferral(ReferralViewModel referral)
+        //{
+        //    try
+        //    {
+        //        using (var connection = AppUtils.GetOpenConnection())
+        //        {
+        //            //Insert CHW 
+        //            CHW chw = referral.CHW;
 
-                    string sql = @"INSERT INTO CHW (HouseholdIdNumber,Name) VALUES";
-                    sql += "(@HouseholdIdNumber, @Name)";
+        //            string sql = @"INSERT INTO CHW (HouseholdIdNumber,Name) VALUES";
+        //            sql += "(@HouseholdIdNumber, @Name)";
 
-                    Dapper.SqlMapper.Execute(connection, sql, chw);
+        //            Dapper.SqlMapper.Execute(connection, sql, chw);
 
-                    //Insert Clinic
-                    Clinic clinic = referral.Clinic;
+        //            //Insert Clinic
+        //            Clinic clinic = referral.Clinic;
 
-                    sql = @"INSERT INTO clinic (ClinicDescription,Active) VALUES";
-                    sql += "(@ClinicDescription, @Active)";
+        //            sql = @"INSERT INTO clinic (ClinicDescription,Active) VALUES";
+        //            sql += "(@ClinicDescription, @Active)";
 
-                    Dapper.SqlMapper.Execute(connection, sql, clinic);
+        //            Dapper.SqlMapper.Execute(connection, sql, clinic);
 
-                    //Insert Ward 
-                    Ward ward = referral.Ward;
+        //            //Insert Ward 
+        //            Ward ward = referral.Ward;
 
-                    sql = @"INSERT INTO Ward (HouseholdIdNumber,Name) VALUES";
-                    sql += "(@HouseholdIdNumber, @Name)";
+        //            sql = @"INSERT INTO Ward (HouseholdIdNumber,Name) VALUES";
+        //            sql += "(@HouseholdIdNumber, @Name)";
 
-                    Dapper.SqlMapper.Execute(connection, sql, ward);
+        //            Dapper.SqlMapper.Execute(connection, sql, ward);
 
-                    //Insert House 
-                    Referral objReferral = referral.Referral;
+        //            //Insert House 
+        //            Referral objReferral = referral.Referral;
 
-                    sql = @"INSERT INTO Referrals (VisitId,ReferralReasonId,ReferralOutcome,ReferredTo,BackReferralReceived) VALUES";
-                    sql += "(@Visit.Id,@ReferralReason.Id,@ReferralOutcome,@ReferredTo,@BackReferralReceived)";
+        //            sql = @"INSERT INTO Referrals (VisitId,ReferralReasonId,ReferralOutcome,ReferredTo,BackReferralReceived) VALUES";
+        //            sql += "(@Visit.Id,@ReferralReason.Id,@ReferralOutcome,@ReferredTo,@BackReferralReceived)";
 
-                    Dapper.SqlMapper.Execute(connection, sql, objReferral);
+        //            Dapper.SqlMapper.Execute(connection, sql, objReferral);
 
-                    //Insert IndividualMember 
-                    IndividualMember individualMember = referral.Member;
+        //            //Insert IndividualMember 
+        //            IndividualMember individualMember = referral.Member;
 
-                    sql = @"INSERT INTO IndividualMember (HouseholdId,VisitId,NextOfKinId,RelationshipStatusId,Name,DOB,Age,Gender,Tel,BirthWeight,ReceivingGrant,Head) VALUES";
-                    sql += "(@Household.Id,@Visit.Id,@NextOfKin.Id,@RelationshipStatus.Id,@Name,@DOB,@Age,@Gender,@Tel,@BirthWeight,@ReceivingGrant,@Head)";
+        //            sql = @"INSERT INTO IndividualMember (HouseholdId,VisitId,NextOfKinId,RelationshipStatusId,Name,DOB,Age,Gender,Tel,BirthWeight,ReceivingGrant,Head) VALUES";
+        //            sql += "(@Household.Id,@Visit.Id,@NextOfKin.Id,@RelationshipStatus.Id,@Name,@DOB,@Age,@Gender,@Tel,@BirthWeight,@ReceivingGrant,@Head)";
 
-                    Dapper.SqlMapper.Execute(connection, sql, individualMember);
+        //            Dapper.SqlMapper.Execute(connection, sql, individualMember);
 
-                    //Insert Question 
-                    foreach (var question in referral.Questions)
-                    {
-                        sql = @"INSERT INTO Questions (QuestionCategoryId,QuestionDescription,Active) VALUES";
-                        sql += "(@QuestionCategory.Id,@QuestionDescription,@Active)";
+        //            //Insert Question 
+        //            foreach (var question in referral.Questions)
+        //            {
+        //                sql = @"INSERT INTO Questions (QuestionCategoryId,QuestionDescription,Active) VALUES";
+        //                sql += "(@QuestionCategory.Id,@QuestionDescription,@Active)";
 
-                        Dapper.SqlMapper.Execute(connection, sql, question);
-                    }
-                }
+        //                Dapper.SqlMapper.Execute(connection, sql, question);
+        //            }
+        //        }
 
-                return RedirectToAction("Index", "Home");
-            }
-            catch
-            {
-                return PartialView("_CreateReferralForm");
-            }
-        }
+        //        return RedirectToAction("Index", "Home");
+        //    }
+        //    catch
+        //    {
+        //        return PartialView("_CreateReferralForm");
+        //    }
+        //}
 
         public ActionResult ListAll()
         {
             return View();
         }
 
-        public ActionResult SelectedFormType(int id)
-        {
-            string viewName = "";
+        //public ActionResult SelectedFormType(int id)
+        //{
+        //    string viewName = "";
             
-            switch (id)
-            {
-                case 1:
-                    viewName = "_ListHouseHoldRegistration";
-                    var list = SelectDBObjects.LoadHouseholdRegistrationViewModels();
-                    return PartialView(viewName, list);
-                case 2:
-                    viewName = "_ListIndividualAdultHealthRecord";
-                    var list1 = SelectDBObjects.LoadIndividualAdultHealthRecord();
-                    return PartialView(viewName, list1);
-                case 3:
-                    viewName = "_ListMaternalandChildHealthRecord";
-                    var list2 = SelectDBObjects.LoadHouseholdRegistrationViewModels();
-                    return PartialView(viewName, list2);
-                case 4:
-                    viewName = "_ListOTTemplate";
-                    var list3 = SelectDBObjects.LoadHouseholdRegistrationViewModels();
-                    return PartialView(viewName, list3);
-                case 5:
-                    viewName = "_ListReferralForm";
-                    var list4 = SelectDBObjects.LoadHouseholdRegistrationViewModels();
-                    return PartialView(viewName, list4);
-                case 6:
-                    viewName = "_ListVisitTick";
-                    var list5 = SelectDBObjects.LoadHouseholdRegistrationViewModels();
-                    return PartialView(viewName, list5);
-                default:
-                    return PartialView(viewName);
-            }
-        }
+        //    switch (id)
+        //    {
+        //        case 1:
+        //            viewName = "_ListHouseHoldRegistration";
+        //            var list = SelectDBObjects.LoadHouseholdRegistrationViewModels();
+        //            return PartialView(viewName, list);
+        //        case 2:
+        //            viewName = "_ListIndividualAdultHealthRecord";
+        //            var list1 = SelectDBObjects.LoadIndividualAdultHealthRecord();
+        //            return PartialView(viewName, list1);
+        //        case 3:
+        //            viewName = "_ListMaternalandChildHealthRecord";
+        //            var list2 = SelectDBObjects.LoadHouseholdRegistrationViewModels();
+        //            return PartialView(viewName, list2);
+        //        case 4:
+        //            viewName = "_ListOTTemplate";
+        //            var list3 = SelectDBObjects.LoadHouseholdRegistrationViewModels();
+        //            return PartialView(viewName, list3);
+        //        case 5:
+        //            viewName = "_ListReferralForm";
+        //            var list4 = SelectDBObjects.LoadHouseholdRegistrationViewModels();
+        //            return PartialView(viewName, list4);
+        //        case 6:
+        //            viewName = "_ListVisitTick";
+        //            var list5 = SelectDBObjects.LoadHouseholdRegistrationViewModels();
+        //            return PartialView(viewName, list5);
+        //        default:
+        //            return PartialView(viewName);
+        //    }
+        //}
     }
 }

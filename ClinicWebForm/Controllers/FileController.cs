@@ -51,22 +51,7 @@ namespace ClinicWebForm.Controllers
 
             foreach(DataRow row in data.Rows)
             {
-                Clinic clinic = new Clinic();
-                clinic.ClinicDescription = row["ClinicName"].ToString();
-                clinic.Active = true;
-
-                AppUtils.InsertClinic(clinic);
-
-                Ward ward = new Ward();
-                ward.WardDescription = row["WardNo"].ToString();
-
-                AppUtils.InsertWard(ward);
-
-                CHW chw = new CHW();
-                chw.HouseholdIdNumber = row["CHWHouseholdIdentifierNo"].ToString();
-                chw.Name = row["CHWName"].ToString();
-
-                AppUtils.InsertCHW(chw);
+                
             }
         }
     }

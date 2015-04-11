@@ -8,13 +8,14 @@ namespace ClinicWebForm.Models
 {
     public class User
     {
+        [Key]
         public int Id { get; set; }
 
         [Required]
         public virtual Role Role { get; set; }
 
         [Required]
-        [MaxLength(50)]
+        [MaxLength(50, ErrorMessage="Username cannot be longer than 50 characters")]
         public string Username { get; set; }
 
         [Required]
