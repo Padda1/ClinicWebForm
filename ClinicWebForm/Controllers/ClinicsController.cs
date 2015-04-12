@@ -12,107 +12,107 @@ using ClinicWebForm.Context;
 
 namespace ClinicWebForm.Controllers
 {
-    public class VisitsController : Controller
+    public class ClinicsController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
-        // GET: Visits
+        // GET: Clinics
         public async Task<ActionResult> Index()
         {
-            return View(await db.Visits.ToListAsync());
+            return View(await db.Clinics.ToListAsync());
         }
 
-        // GET: Visits/Details/5
+        // GET: Clinics/Details/5
         public async Task<ActionResult> Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Visit visit = await db.Visits.FindAsync(id);
-            if (visit == null)
+            Clinic clinic = await db.Clinics.FindAsync(id);
+            if (clinic == null)
             {
                 return HttpNotFound();
             }
-            return View(visit);
+            return View(clinic);
         }
 
-        // GET: Visits/Create
+        // GET: Clinics/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Visits/Create
+        // POST: Clinics/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create([Bind(Include = "Id,PreviousVisitId,VisitDate")] Visit visit)
+        public async Task<ActionResult> Create([Bind(Include = "Id,ClinicDescription,Active")] Clinic clinic)
         {
             if (ModelState.IsValid)
             {
-                db.Visits.Add(visit);
+                db.Clinics.Add(clinic);
                 await db.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
 
-            return View(visit);
+            return View(clinic);
         }
 
-        // GET: Visits/Edit/5
+        // GET: Clinics/Edit/5
         public async Task<ActionResult> Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Visit visit = await db.Visits.FindAsync(id);
-            if (visit == null)
+            Clinic clinic = await db.Clinics.FindAsync(id);
+            if (clinic == null)
             {
                 return HttpNotFound();
             }
-            return View(visit);
+            return View(clinic);
         }
 
-        // POST: Visits/Edit/5
+        // POST: Clinics/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit([Bind(Include = "Id,PreviousVisitId,VisitDate")] Visit visit)
+        public async Task<ActionResult> Edit([Bind(Include = "Id,ClinicDescription,Active")] Clinic clinic)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(visit).State = EntityState.Modified;
+                db.Entry(clinic).State = EntityState.Modified;
                 await db.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
-            return View(visit);
+            return View(clinic);
         }
 
-        // GET: Visits/Delete/5
+        // GET: Clinics/Delete/5
         public async Task<ActionResult> Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Visit visit = await db.Visits.FindAsync(id);
-            if (visit == null)
+            Clinic clinic = await db.Clinics.FindAsync(id);
+            if (clinic == null)
             {
                 return HttpNotFound();
             }
-            return View(visit);
+            return View(clinic);
         }
 
-        // POST: Visits/Delete/5
+        // POST: Clinics/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> DeleteConfirmed(int id)
         {
-            Visit visit = await db.Visits.FindAsync(id);
-            db.Visits.Remove(visit);
+            Clinic clinic = await db.Clinics.FindAsync(id);
+            db.Clinics.Remove(clinic);
             await db.SaveChangesAsync();
             return RedirectToAction("Index");
         }

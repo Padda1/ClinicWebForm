@@ -1,4 +1,5 @@
 ﻿using ClinicWebForm.Classes;
+using ClinicWebForm.Context;
 using ClinicWebForm.Models;
 using ClinicWebForm.Utils;
 using FileHelpers;
@@ -51,7 +52,15 @@ namespace ClinicWebForm.Controllers
 
             foreach(DataRow row in data.Rows)
             {
-                
+                using (var context = new ApplicationDbContext())
+                {
+                    Clinic clinic = new Clinic();
+                    clinic.ClinicDescription = row["ClinicName"].ToString();
+                    clinic.Active = true;
+
+                    context.Clinics.Add(clinic);
+                    context.SaveChanges();
+                }
             }
         }
     }

@@ -175,7 +175,9 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Classes\Documents.cs" />
     <Compile Include="Classes\FileTemplate.cs" />
+    <Compile Include="Context\ApplicationDbContext.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\ClinicsController.cs" />
     <Compile Include="Controllers\FileController.cs" />
     <Compile Include="Controllers\FormController.cs" />
     <Compile Include="Controllers\HealthController.cs" />
@@ -186,6 +188,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Hubs\HitCounterHub.cs" />
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ActionPerformed.cs" />
     <Compile Include="Models\CHW.cs" />
@@ -228,8 +231,8 @@
     <Content Include="lib\FileHelpers.dll" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <Content Include="App_Data\testFile_1.csv" />
-    <Content Include="App_Data\testFile_1.xlsx" />
+    <Content Include="TestData\testFile_1.csv" />
+    <Content Include="TestData\testFile_1.xlsx" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -305,8 +308,14 @@
     <Content Include="Views\Visits\Details.cshtml" />
     <Content Include="Views\Visits\Edit.cshtml" />
     <Content Include="Views\Visits\Index.cshtml" />
+    <Content Include="Views\Clinics\Create.cshtml" />
+    <Content Include="Views\Clinics\Delete.cshtml" />
+    <Content Include="Views\Clinics\Details.cshtml" />
+    <Content Include="Views\Clinics\Edit.cshtml" />
+    <Content Include="Views\Clinics\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="App_Data\" />
     <Folder Include="DocumentTemplates\" />
   </ItemGroup>
   <ItemGroup>

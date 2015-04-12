@@ -10,7 +10,11 @@ namespace ClinicWebForm.Models
     {
         [Key]
         public int Id { get; set; }
+
+        [Required]
+        [Display(Name = "Description")]
         public string ClinicDescription { get; set; }
+
         public bool Active { get; set; }
     }
 }

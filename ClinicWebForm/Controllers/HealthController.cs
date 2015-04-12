@@ -8,6 +8,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using ClinicWebForm.Models;
+using ClinicWebForm.Context;
 
 namespace ClinicWebForm.Controllers
 {
