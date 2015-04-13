@@ -244,6 +244,7 @@
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="TestData\testFile_1.csv" />
     <Content Include="TestData\testFile_1.xlsx" />
+    <None Include="Properties\PublishProfiles\pnchat.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
