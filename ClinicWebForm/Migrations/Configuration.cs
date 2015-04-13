@@ -10,7 +10,7 @@ namespace ClinicWebForm.Migrations
         public Configuration()
         {
             AutomaticMigrationsEnabled = true;
-            ContextKey = "ClinicWebForm.Models.ApplicationDbContext";
+            ContextKey = "ClinicWebForm.Context.ApplicationDbContext";
         }
 
         protected override void Seed(ClinicWebForm.Context.ApplicationDbContext context)

@@ -18,17 +18,17 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Clinic, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Clinic, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Clinic, "", new { @class = "text-danger" })
+            <label for="Clinics" class="control-label col-md-2">Clinics</label>
+            <div class="dropdown col-md-10">
+                @Html.DropDownList("Clinics")
+                @Html.ValidationMessageFor(model => model.Ward, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Ward, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Ward, new { htmlAttributes = new { @class = "form-control" } })
+            <label for="Wards" class="control-label col-md-2">Wards</label>
+            <div class="dropdown col-md-10">
+                @Html.DropDownList("Wards")
                 @Html.ValidationMessageFor(model => model.Ward, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -59,7 +59,7 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" formaction="@Url.Action("SubmitHouseHoldRegistration", "Form")"/>
+                <input type="submit" value="Create" class="btn btn-default" formaction="@Url.Action("SubmitHouseHoldRegistration", "Form")" />
             </div>
         </div>
     </div>

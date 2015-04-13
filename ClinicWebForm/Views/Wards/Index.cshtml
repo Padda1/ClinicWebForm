@@ -1,7 +1,7 @@
-﻿@model IEnumerable<ClinicWebForm.Models.Clinic>
+﻿@model IEnumerable<ClinicWebForm.Models.Ward>
 
 @{
-    ViewBag.Title = "Clinics";
+    ViewBag.Title = "Index";
 }
 
 <h2>Index</h2>
@@ -12,7 +12,7 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.ClinicDescription)
+            @Html.DisplayNameFor(model => model.WardDescription)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Active)
@@ -23,7 +23,7 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.ClinicDescription)
+            @Html.DisplayFor(modelItem => item.WardDescription)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Active)

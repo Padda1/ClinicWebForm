@@ -177,17 +177,28 @@
     <Compile Include="Classes\FileTemplate.cs" />
     <Compile Include="Context\ApplicationDbContext.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\ClinicsController.cs" />
     <Compile Include="Controllers\FileController.cs" />
     <Compile Include="Controllers\FormController.cs" />
     <Compile Include="Controllers\HealthController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\QuestionsController.cs" />
     <Compile Include="Controllers\VisitsController.cs" />
+    <Compile Include="Controllers\WardsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Hubs\HitCounterHub.cs" />
+    <Compile Include="Migrations\201504121407543_AddedWardController.cs" />
+    <Compile Include="Migrations\201504121407543_AddedWardController.Designer.cs">
+      <DependentUpon>201504121407543_AddedWardController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201504121410013_UpdatedWardModel.cs" />
+    <Compile Include="Migrations\201504121410013_UpdatedWardModel.Designer.cs">
+      <DependentUpon>201504121410013_UpdatedWardModel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ActionPerformed.cs" />
@@ -313,6 +324,17 @@
     <Content Include="Views\Clinics\Details.cshtml" />
     <Content Include="Views\Clinics\Edit.cshtml" />
     <Content Include="Views\Clinics\Index.cshtml" />
+    <Content Include="Views\Admin\Index.cshtml" />
+    <Content Include="Views\Wards\Create.cshtml" />
+    <Content Include="Views\Wards\Delete.cshtml" />
+    <Content Include="Views\Wards\Details.cshtml" />
+    <Content Include="Views\Wards\Edit.cshtml" />
+    <Content Include="Views\Wards\Index.cshtml" />
+    <Content Include="Views\Questions\Create.cshtml" />
+    <Content Include="Views\Questions\Delete.cshtml" />
+    <Content Include="Views\Questions\Details.cshtml" />
+    <Content Include="Views\Questions\Edit.cshtml" />
+    <Content Include="Views\Questions\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -324,6 +346,14 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201504121407543_AddedWardController.resx">
+      <DependentUpon>201504121407543_AddedWardController.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201504121410013_UpdatedWardModel.resx">
+      <DependentUpon>201504121410013_UpdatedWardModel.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
