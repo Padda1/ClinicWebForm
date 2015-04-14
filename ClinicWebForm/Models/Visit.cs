@@ -10,10 +10,14 @@ namespace ClinicWebForm.Models
     {
         [Key]
         public int Id { get; set; }
-        public User User { get; set; }
+
+        [Required]
         public virtual CHW CHW { get; set; }
+
         public int PreviousVisitId { get; set; }
+
         public virtual ActionPerformed ActionPerformed { get; set; }
+
         public DateTime VisitDate { get; set; }
     }
 }
