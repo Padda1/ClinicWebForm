@@ -19,7 +19,7 @@
 
         <div class="form-group">
             <label for="Clinics" class="control-label col-md-2">Clinics</label>
-            <div class="dropdown col-md-10">
+            <div class="btn btn-default dropdown-toggle col-md-10">
                 @Html.DropDownList("Clinics")
                 @Html.ValidationMessageFor(model => model.Ward, "", new { @class = "text-danger" })
             </div>
@@ -27,7 +27,7 @@
 
         <div class="form-group">
             <label for="Wards" class="control-label col-md-2">Wards</label>
-            <div class="dropdown col-md-10">
+            <div class="btn btn-default dropdown-toggle col-md-10">
                 @Html.DropDownList("Wards")
                 @Html.ValidationMessageFor(model => model.Ward, "", new { @class = "text-danger" })
             </div>

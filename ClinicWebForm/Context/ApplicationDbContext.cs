@@ -32,5 +32,7 @@ namespace ClinicWebForm.Context
         public System.Data.Entity.DbSet<ClinicWebForm.Models.Ward> Wards { get; set; }
 
         public System.Data.Entity.DbSet<ClinicWebForm.Models.Questions> Questions { get; set; }
+
+        public System.Data.Entity.DbSet<ClinicWebForm.Models.Form> Forms { get; set; }
     }
 }

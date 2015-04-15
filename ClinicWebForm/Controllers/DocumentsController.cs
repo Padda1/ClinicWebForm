@@ -10,16 +10,11 @@ using System.Web.Mvc;
 
 namespace ClinicWebForm.Controllers
 {
-    [Authorize]
-    public class FormController : Controller
+    //[Authorize]
+    public class DocumentsController : Controller
     {
         // GET: Form
         public ActionResult Index()
-        {
-            return View();
-        }
-
-        public ActionResult SelectForm()
         {
             return View();
         }
