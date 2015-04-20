@@ -35,5 +35,8 @@ namespace ClinicWebForm.Models
         [MinLength(2)]
         [MaxLength(100)]
         public string Signature { get; set; }
+
+        [Display(Name = "Is Team Leader")]
+        public bool IsTeamLeader { get; set; }
     }
 }
