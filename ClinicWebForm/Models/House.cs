@@ -18,6 +18,8 @@ namespace ClinicWebForm.Models
         public int Rooms { get; set; }
         public int AmountOfGrants { get; set; }
         public int AmountOfWorkingMembers { get; set; }
+
+        [DataType(DataType.MultilineText)]
         public string NameOfSchools { get; set; }
     }
 }
