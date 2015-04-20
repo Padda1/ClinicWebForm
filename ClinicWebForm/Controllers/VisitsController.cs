@@ -12,6 +12,7 @@ using ClinicWebForm.Context;
 
 namespace ClinicWebForm.Controllers
 {
+    [Authorize]
     public class VisitsController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
