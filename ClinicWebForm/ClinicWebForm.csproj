@@ -185,6 +185,8 @@
     <Compile Include="Controllers\HealthController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\MunicipalitiesController.cs" />
+    <Compile Include="Controllers\ProvincesController.cs" />
     <Compile Include="Controllers\QuestionsController.cs" />
     <Compile Include="Controllers\VisitsController.cs" />
     <Compile Include="Controllers\WardsController.cs" />
@@ -206,6 +208,7 @@
     <Compile Include="Models\CHW.cs" />
     <Compile Include="Models\Clinic.cs" />
     <Compile Include="Models\Form.cs" />
+    <Compile Include="Models\FormDocument.cs" />
     <Compile Include="Models\FormsViewModel.cs" />
     <Compile Include="Models\Health.cs" />
     <Compile Include="Models\House.cs" />
@@ -216,7 +219,9 @@
     <Compile Include="Models\IndividualMember.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\MaternalandChildHealthRecordViewModel.cs" />
+    <Compile Include="Models\Municipality.cs" />
     <Compile Include="Models\NextOfKin.cs" />
+    <Compile Include="Models\Province.cs" />
     <Compile Include="Models\QuestionCategory.cs" />
     <Compile Include="Models\Questions.cs" />
     <Compile Include="Models\ReferralOutcome.cs" />
@@ -225,7 +230,6 @@
     <Compile Include="Models\ReferralViewModel.cs" />
     <Compile Include="Models\RelationshipStatus.cs" />
     <Compile Include="Models\Respondent.cs" />
-    <Compile Include="Models\Role.cs" />
     <Compile Include="Models\Visit.cs" />
     <Compile Include="Models\Ward.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -341,6 +345,16 @@
     <Content Include="Views\Forms\Details.cshtml" />
     <Content Include="Views\Forms\Edit.cshtml" />
     <Content Include="Views\Forms\Index.cshtml" />
+    <Content Include="Views\Provinces\Create.cshtml" />
+    <Content Include="Views\Provinces\Delete.cshtml" />
+    <Content Include="Views\Provinces\Details.cshtml" />
+    <Content Include="Views\Provinces\Edit.cshtml" />
+    <Content Include="Views\Provinces\Index.cshtml" />
+    <Content Include="Views\Municipalities\Create.cshtml" />
+    <Content Include="Views\Municipalities\Delete.cshtml" />
+    <Content Include="Views\Municipalities\Details.cshtml" />
+    <Content Include="Views\Municipalities\Edit.cshtml" />
+    <Content Include="Views\Municipalities\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

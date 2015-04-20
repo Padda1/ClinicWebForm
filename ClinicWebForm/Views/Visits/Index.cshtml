@@ -24,6 +24,7 @@
         <th>
             @Html.DisplayNameFor(model => model.VisitDate)
         </th>
+        <th>Forms</th>
         <th></th>
     </tr>
 
@@ -42,6 +43,19 @@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.VisitDate)
+            </td>
+            <td>
+                <table>
+                    @foreach (var form in item.FormDocuments)
+                    {
+                        <tr>
+                            <td>
+                                @*@Html.ActionLink(form.Form.FormName, "Edit", new { id = item.Id })*@
+                                @Html.DisplayFor(model => form.Form.FormName)
+                            </td>
+                        </tr>
+                    }
+                </table>
             </td>
             <td>
                 @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |

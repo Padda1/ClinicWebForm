@@ -12,10 +12,7 @@ namespace ClinicWebForm.Models
         public int Id { get; set; }
 
         [Required]
-        public string ApsNetUserId { get; set; }
-
-        [Required]
-        public string AspNetUserId { get; set; }
+        public ApplicationUser User { get; set; }
 
         public string HouseholdIdNName { get; set; }
 

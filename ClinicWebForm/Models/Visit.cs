@@ -10,14 +10,15 @@ namespace ClinicWebForm.Models
         public int Id { get; set; }
 
         [Required]
-        public CHW CHW { get; set; }
+        public virtual CHW CHW { get; set; }
 
-        public int PreviousVisitId { get; set; }
+        public virtual Visit PreviousVisits { get; set; }
 
-        public virtual List<Visit> PreviousVisits { get; set; }
+        public virtual List<ActionPerformed> ActionsPerformed { get; set; }
 
-        public virtual ActionPerformed ActionPerformed { get; set; }
-
+        [DataType(DataType.DateTime)]
         public DateTime VisitDate { get; set; }
+
+        public virtual List<FormDocument> FormDocuments { get; set; }
     }
 }

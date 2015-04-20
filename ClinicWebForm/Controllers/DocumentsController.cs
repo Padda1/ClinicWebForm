@@ -10,7 +10,7 @@ using System.Web.Mvc;
 
 namespace ClinicWebForm.Controllers
 {
-    [Authorize]
+    //[Authorize]
     public class DocumentsController : Controller
     {
         // GET: Form
