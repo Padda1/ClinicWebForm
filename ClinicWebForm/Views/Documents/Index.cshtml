@@ -1,10 +1,10 @@
 ﻿<script src="~/Scripts/jquery-1.10.2.js"></script>
 <script type="text/javascript">
     $(document).ready(function () {
-        $('#dropdown').change(function () {
+        $('#Forms').change(function () {
 
             /* Get the selected value of dropdownlist */
-            var selectedID = $('#dropdown').val();
+            var selectedID = $('#Forms').val();
 
             /* Request the partial view with .get request. */
             $.get('/Documents/SelectedForm/' + selectedID, function (data) {
@@ -27,16 +27,8 @@
 @using (Html.BeginForm())
 {
     <div class="panel panel-default">
-        <label>Form:</label>        
-        <select id="dropdown" class="btn btn-default dropdown-toggle">
-            <option value="0">Select</option>
-            <option value="1">Household Registration</option>
-            <option value="2">Individual Adult Health Record</option>
-            <option value="3">Maternal and Child Health Record</option>
-            <option value="4">Outreach Team Monthly Summary</option>
-            <option value="5">Referral Form</option>
-            <option value="6">Visit Tick</option>
-        </select>
+        <label>Form:</label>
+        @Html.DropDownList("Forms")
     </div>
 }
 

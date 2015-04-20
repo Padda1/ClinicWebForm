@@ -339,10 +339,6 @@
     <Content Include="Views\Health\Details.cshtml" />
     <Content Include="Views\Health\Edit.cshtml" />
     <Content Include="Views\Health\Index.cshtml" />
-    <Content Include="Views\Visits\Create.cshtml" />
-    <Content Include="Views\Visits\Delete.cshtml" />
-    <Content Include="Views\Visits\Details.cshtml" />
-    <Content Include="Views\Visits\Edit.cshtml" />
     <Content Include="Views\Clinics\Create.cshtml" />
     <Content Include="Views\Clinics\Delete.cshtml" />
     <Content Include="Views\Clinics\Details.cshtml" />
@@ -359,7 +355,6 @@
     <Content Include="Views\Questions\Details.cshtml" />
     <Content Include="Views\Questions\Edit.cshtml" />
     <Content Include="Views\Questions\Index.cshtml" />
-    <Content Include="Views\Visits\Index.cshtml" />
     <Content Include="Views\Forms\Create.cshtml" />
     <Content Include="Views\Forms\Delete.cshtml" />
     <Content Include="Views\Forms\Details.cshtml" />
@@ -381,6 +376,11 @@
     <Content Include="Views\Teams\Edit.cshtml" />
     <Content Include="Views\Teams\Index.cshtml" />
     <Content Include="Views\Documents\OutreachTeamMonthlySummary\_CreateOutreachTeamMonthlySummary.cshtml" />
+    <Content Include="Views\Visits\Create.cshtml" />
+    <Content Include="Views\Visits\Delete.cshtml" />
+    <Content Include="Views\Visits\Details.cshtml" />
+    <Content Include="Views\Visits\Edit.cshtml" />
+    <Content Include="Views\Visits\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
