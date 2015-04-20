@@ -6,7 +6,7 @@ using System.Web.Mvc;
 
 namespace ClinicWebForm.Controllers
 {
-    [Authorize]
+    [Authorize(Roles="admin")]
     public class AdminController : Controller
     {
         // GET: Admin

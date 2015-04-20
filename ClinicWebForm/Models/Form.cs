@@ -10,6 +10,10 @@ namespace ClinicWebForm.Models
     {
         [Key]
         public int Id { get; set; }
+
+        [Required(ErrorMessage="{0} is required.")]
+        [MinLength(2)]
+        [Display(Name="Form")]
         public string FormName { get; set; }
         public bool Active { get; set; }
     }

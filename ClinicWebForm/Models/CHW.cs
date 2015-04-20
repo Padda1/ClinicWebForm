@@ -12,8 +12,16 @@ namespace ClinicWebForm.Models
         public int Id { get; set; }
 
         [Required]
+        public string ApsNetUserId { get; set; }
+
+        [Required]
         public string AspNetUserId { get; set; }
 
+        public string HouseholdIdNName { get; set; }
+
+        [Required]
+        [MinLength(2)]
+        [MaxLength(10)]
         public string HouseholdIdNumber { get; set; }
         
         [Required]
@@ -25,5 +33,10 @@ namespace ClinicWebForm.Models
         [MinLength(2)]
         [MaxLength(100)]
         public string Surname { get; set; }
+
+        [Required]
+        [MinLength(2)]
+        [MaxLength(100)]
+        public string Signature { get; set; }
     }
 }

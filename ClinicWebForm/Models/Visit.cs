@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace ClinicWebForm.Models
@@ -9,9 +10,11 @@ namespace ClinicWebForm.Models
         public int Id { get; set; }
 
         [Required]
-        public virtual CHW CHW { get; set; }
+        public CHW CHW { get; set; }
 
         public int PreviousVisitId { get; set; }
+
+        public virtual List<Visit> PreviousVisits { get; set; }
 
         public virtual ActionPerformed ActionPerformed { get; set; }
 

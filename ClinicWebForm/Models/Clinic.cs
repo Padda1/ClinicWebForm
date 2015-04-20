@@ -11,8 +11,8 @@ namespace ClinicWebForm.Models
         [Key]
         public int Id { get; set; }
 
-        [Required]
-        [Display(Name = "Description")]
+        [Required(ErrorMessage = "{0} is required.")]
+        [Display(Name = "Clinic")]
         public string ClinicDescription { get; set; }
 
         public bool Active { get; set; }

@@ -49,7 +49,7 @@ namespace ClinicWebForm.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create([Bind(Include = "Id,PreviousVisitId,VisitDate")] Visit visit)
+        public async Task<ActionResult> Create([Bind(Include = "Id,VisitDate")] Visit visit)
         {
             if (ModelState.IsValid)
             {
@@ -81,7 +81,7 @@ namespace ClinicWebForm.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit([Bind(Include = "Id,PreviousVisitId,VisitDate")] Visit visit)
+        public async Task<ActionResult> Edit([Bind(Include = "Id,VisitDate")] Visit visit)
         {
             if (ModelState.IsValid)
             {

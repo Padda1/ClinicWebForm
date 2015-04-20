@@ -10,9 +10,6 @@ namespace ClinicWebForm.Context
 {
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
-        public DbSet<Health> Health { get; set; }
-        public DbSet<Visit> Visits { get; set; }
-        public DbSet<Clinic> Clinics { get; set; }
 
 #if DEBUG
         public ApplicationDbContext() : base("DefaultConnection", throwIfV1Schema: false)
@@ -28,6 +25,12 @@ namespace ClinicWebForm.Context
         {
             return new ApplicationDbContext();
         }
+
+        public System.Data.Entity.DbSet<ClinicWebForm.Models.Health> Health { get; set; }
+
+        public System.Data.Entity.DbSet<ClinicWebForm.Models.Visit> Visits { get; set; }
+
+        public System.Data.Entity.DbSet<ClinicWebForm.Models.Clinic> Clinics { get; set; }
 
         public System.Data.Entity.DbSet<ClinicWebForm.Models.Ward> Wards { get; set; }
 
