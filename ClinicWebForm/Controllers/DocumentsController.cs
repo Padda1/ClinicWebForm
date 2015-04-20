@@ -27,6 +27,7 @@ namespace ClinicWebForm.Controllers
             {
                 case 1:
                     viewName += "HouseholdRegistration/_CreateHouseHoldRegistration";
+                    LoadHouseholdRegistration();
                     break;
                 case 2:
                     viewName += "IndividualAdultHealthRecord/_CreateIndividualAdultHealthRecord";
@@ -35,7 +36,7 @@ namespace ClinicWebForm.Controllers
                     viewName += "MaternalandChildHealthRecord/_CreateMaternalandChildHealthRecord";
                     break;
                 case 4:
-                    viewName += "_CreateOTTemplate";
+                    viewName += "OutreachTeamMonthlySummary/_CreateOutreachTeamMonthlySummary";
                     break;
                 case 5:
                     viewName += "Referral/_CreateReferralForm";
@@ -45,44 +46,13 @@ namespace ClinicWebForm.Controllers
                     break;
             }
 
-            LoadClinics();
-            LoadWards();
-
             return PartialView(viewName);
         }
 
-        private void LoadClinics()
+        public void LoadHouseholdRegistration()
         {
-            List<SelectListItem> objClinics = new List<SelectListItem>();
-
-            using(var dbContext = new ApplicationDbContext())
-            {
-                var clinics = dbContext.Clinics.ToList();
-
-                foreach(var clinic in clinics)
-                {
-                    objClinics.Add(new SelectListItem { Value = clinic.Id.ToString(), Text = clinic.ClinicDescription });
-                }
-            }
-
-            ViewBag.Clinics = objClinics;
-        }
-
-        private void LoadWards()
-        {
-            List<SelectListItem> objWard = new List<SelectListItem>();
-
-            using (var dbContext = new ApplicationDbContext())
-            {
-                var wards = dbContext.Wards.ToList();
-
-                foreach (var ward in wards)
-                {
-                    objWard.Add(new SelectListItem { Value = ward.Id.ToString(), Text = ward.WardDescription });
-                }
-            }
-
-            ViewBag.Wards = objWard;
+            ViewBag.Clinics = AppUtils.LoadClinics();
+            ViewBag.Wards = AppUtils.LoadWards();
         }
 
         public ActionResult ListAll()

@@ -204,6 +204,7 @@
     <Compile Include="Controllers\MunicipalitiesController.cs" />
     <Compile Include="Controllers\ProvincesController.cs" />
     <Compile Include="Controllers\QuestionsController.cs" />
+    <Compile Include="Controllers\TeamsController.cs" />
     <Compile Include="Controllers\VisitsController.cs" />
     <Compile Include="Controllers\WardsController.cs" />
     <Compile Include="GlimpseSecurityPolicy.cs" />
@@ -238,6 +239,7 @@
     <Compile Include="Models\MaternalandChildHealthRecordViewModel.cs" />
     <Compile Include="Models\Municipality.cs" />
     <Compile Include="Models\NextOfKin.cs" />
+    <Compile Include="Models\OutreachTeamMonthlySummaryViewModel.cs" />
     <Compile Include="Models\Province.cs" />
     <Compile Include="Models\QuestionCategory.cs" />
     <Compile Include="Models\Questions.cs" />
@@ -247,6 +249,7 @@
     <Compile Include="Models\ReferralViewModel.cs" />
     <Compile Include="Models\RelationshipStatus.cs" />
     <Compile Include="Models\Respondent.cs" />
+    <Compile Include="Models\Team.cs" />
     <Compile Include="Models\Visit.cs" />
     <Compile Include="Models\Ward.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -372,6 +375,12 @@
     <Content Include="Views\Municipalities\Details.cshtml" />
     <Content Include="Views\Municipalities\Edit.cshtml" />
     <Content Include="Views\Municipalities\Index.cshtml" />
+    <Content Include="Views\Teams\Create.cshtml" />
+    <Content Include="Views\Teams\Delete.cshtml" />
+    <Content Include="Views\Teams\Details.cshtml" />
+    <Content Include="Views\Teams\Edit.cshtml" />
+    <Content Include="Views\Teams\Index.cshtml" />
+    <Content Include="Views\Documents\OutreachTeamMonthlySummary\_CreateOutreachTeamMonthlySummary.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -6,6 +6,7 @@
     <title>@ViewBag.Title - My ASP.NET Application</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/jquery")
 
 </head>
 <body>
@@ -31,6 +32,7 @@
                             <li>@Html.ActionLink("Manage Wards", "Index", "Wards", null, new { @class = "dropdown-toggle" })</li>
                             <li>@Html.ActionLink("Manage Questions", "Index", "Questions", null, new { @class = "dropdown-toggle" })</li>
                             <li>@Html.ActionLink("Manage Users", "Index", "Users", null, new { @class = "dropdown-toggle" })</li>
+                            <li>@Html.ActionLink("Manage Teams", "Index", "Teams", null, new { @class = "dropdown-toggle" })</li>
                             <li>@Html.ActionLink("Manage Forms", "Index", "Forms", null, new { @class = "dropdown-toggle" })</li>
                             <li>@Html.ActionLink("Manage Provinces", "Index", "Provinces", null, new { @class = "dropdown-toggle" })</li>
                             <li>@Html.ActionLink("Manage Municipalities", "Index", "Municipalities", null, new { @class = "dropdown-toggle" })</li>
@@ -48,12 +50,25 @@
         @RenderBody()
         <hr />
         <footer>
+            <div id="hitCountValue" class="label label-success">Active Users: 0</div>
             <p>&copy; @DateTime.Now.Year - Clinic Health Application</p>
+            <script src="~/Scripts/jquery.signalR-2.1.2.js"></script>
+            <script type="text/javascript">
+                $(function () {
+                    var connection = $.hubConnection();
+                    var hub = connection.createHubProxy("hitCounter");
+
+                    hub.on("onRecordHit", function (hitCount) {
+                        $('#hitCountValue').text('Active Users: ' + hitCount);
+                    });
+
+                    connection.start(function () {
+                        hub.invoke('recordHit');
+                    });
+                })
+            </script>
         </footer>
     </div>
-
-    @*@Scripts.Render("~/bundles/jquery")
-        @Scripts.Render("~/bundles/jquery.signalR")*@
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
 </body>

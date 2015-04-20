@@ -14,11 +14,13 @@ namespace ClinicWebForm.Models
         [Required]
         public ApplicationUser User { get; set; }
 
-        public string HouseholdIdNName { get; set; }
+        [Display(Name = "Household Id Name")]
+        public string HouseholdIdName { get; set; }
 
         [Required]
         [MinLength(2)]
         [MaxLength(10)]
+        [Display(Name = "Household Id Number")]
         public string HouseholdIdNumber { get; set; }
         
         [Required]

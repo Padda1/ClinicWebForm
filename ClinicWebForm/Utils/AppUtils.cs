@@ -1,9 +1,8 @@
-﻿using ClinicWebForm.Models;
-using System;
+﻿using ClinicWebForm.Context;
 using System.Collections.Generic;
-using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 
 namespace ClinicWebForm.Utils
 {
@@ -11,19 +10,38 @@ namespace ClinicWebForm.Utils
     {
         public static string WordTemplateDirectory = HttpContext.Current.Server.MapPath("~/DocumentTemplates/");
 
-        public static string ConnectionString
+        public static List<SelectListItem> LoadClinics()
         {
-            get
+            List<SelectListItem> objClinics = new List<SelectListItem>();
+
+            using (var dbContext = new ApplicationDbContext())
             {
-                return (string)System.Configuration.ConfigurationManager.ConnectionStrings["healthConnStr"].ConnectionString;
+                var clinics = dbContext.Clinics.ToList();
+
+                foreach (var clinic in clinics)
+                {
+                    objClinics.Add(new SelectListItem { Value = clinic.Id.ToString(), Text = clinic.ClinicDescription });
+                }
             }
+
+            return objClinics;
         }
 
-        public static SqlConnection GetOpenConnection()
+        public static List<SelectListItem> LoadWards()
         {
-            var connection = new SqlConnection(ConnectionString);
-            connection.Open();
-            return connection;
+            List<SelectListItem> objWard = new List<SelectListItem>();
+
+            using (var dbContext = new ApplicationDbContext())
+            {
+                var wards = dbContext.Wards.ToList();
+
+                foreach (var ward in wards)
+                {
+                    objWard.Add(new SelectListItem { Value = ward.Id.ToString(), Text = ward.WardDescription });
+                }
+            }
+
+            return objWard;
         }
     }
 }
