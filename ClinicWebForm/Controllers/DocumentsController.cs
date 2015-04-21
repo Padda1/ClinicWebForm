@@ -5,6 +5,7 @@ using ClinicWebForm.Utils;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 
@@ -74,6 +75,25 @@ namespace ClinicWebForm.Controllers
             return PartialView(viewName);
         }
 
+
+
+
+        public async Task<ActionResult> SubmitHouseHoldRegistration(HouseholdRegistrationViewModel model)
+        {
+            if (ModelState.IsValid == false)
+            {
+                return PartialView(model);
+            }
+
+            using (var dbContext = new ApplicationDbContext())
+            {
+                //save items
+
+                await dbContext.SaveChangesAsync();
+            }
+
+            return RedirectToAction("Index");
+        }
 
 
 
