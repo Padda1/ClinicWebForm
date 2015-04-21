@@ -31,8 +31,7 @@ namespace ClinicWebForm.Controllers
                 case 1:
                     return LoadHouseholdRegistration();
                 case 2:
-                    viewName += "IndividualAdultHealthRecord/_CreateIndividualAdultHealthRecord";
-                    return PartialView(viewName);
+                    return LoadIndividualAdultHealthRecord();
                 case 3:
                     viewName += "MaternalandChildHealthRecord/_CreateMaternalandChildHealthRecord";
                     return PartialView(viewName);
@@ -68,6 +67,15 @@ namespace ClinicWebForm.Controllers
 
             return objHouseholdRegistration;
         }
+
+        private PartialViewResult LoadIndividualAdultHealthRecord()
+        {
+            string viewName = "IndividualAdultHealthRecord/_CreateIndividualAdultHealthRecord";
+            return PartialView(viewName);
+        }
+
+
+
 
         public void LoadOutreachTeamMonthlySummary()
         {
