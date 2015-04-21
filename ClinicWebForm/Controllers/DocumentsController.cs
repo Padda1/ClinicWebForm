@@ -37,6 +37,7 @@ namespace ClinicWebForm.Controllers
                     break;
                 case 4:
                     viewName += "OutreachTeamMonthlySummary/_CreateOutreachTeamMonthlySummary";
+                    LoadOutreachTeamMonthlySummary();
                     break;
                 case 5:
                     viewName += "Referral/_CreateReferralForm";
@@ -50,6 +51,12 @@ namespace ClinicWebForm.Controllers
         }
 
         public void LoadHouseholdRegistration()
+        {
+            ViewBag.Clinics = AppUtils.LoadClinics();
+            ViewBag.Wards = AppUtils.LoadWards();
+        }
+
+        public void LoadOutreachTeamMonthlySummary()
         {
             ViewBag.Clinics = AppUtils.LoadClinics();
             ViewBag.Wards = AppUtils.LoadWards();

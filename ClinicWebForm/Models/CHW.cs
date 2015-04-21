@@ -22,7 +22,7 @@ namespace ClinicWebForm.Models
         [MaxLength(10)]
         [Display(Name = "Household Id Number")]
         public string HouseholdIdNumber { get; set; }
-        
+
         [Required]
         [MinLength(2)]
         [MaxLength(100)]
@@ -36,6 +36,7 @@ namespace ClinicWebForm.Models
         [Required]
         [MinLength(2)]
         [MaxLength(100)]
+        [Display(Name = "CHW")]
         public string Signature { get; set; }
 
         [Display(Name = "Is Team Leader")]

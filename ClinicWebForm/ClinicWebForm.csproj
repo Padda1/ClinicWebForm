@@ -385,7 +385,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="DocumentTemplates\" />
-    <Folder Include="Views\Documents\Manage\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

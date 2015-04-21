@@ -16,7 +16,7 @@ namespace ClinicWebForm.Utils
 
             using (var dbContext = new ApplicationDbContext())
             {
-                var clinics = dbContext.Clinics.ToList();
+                var clinics = dbContext.Clinics.Where(c => c.Active == true).ToList();
 
                 foreach (var clinic in clinics)
                 {
@@ -33,7 +33,7 @@ namespace ClinicWebForm.Utils
 
             using (var dbContext = new ApplicationDbContext())
             {
-                var wards = dbContext.Wards.ToList();
+                var wards = dbContext.Wards.Where(c => c.Active == true).ToList();
 
                 foreach (var ward in wards)
                 {
