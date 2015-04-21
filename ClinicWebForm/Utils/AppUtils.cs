@@ -43,5 +43,22 @@ namespace ClinicWebForm.Utils
 
             return objWard;
         }
+
+        public static List<SelectListItem> LoadForms()
+        {
+            List<SelectListItem> objForms = new List<SelectListItem>();
+
+            using (var dbContext = new ApplicationDbContext())
+            {
+                var forms = dbContext.Forms.Where(c => c.Active == true).ToList();
+
+                foreach (var form in forms)
+                {
+                    objForms.Add(new SelectListItem { Value = form.Id.ToString(), Text = form.FormName });
+                }
+            }
+
+            return objForms;
+        }
     }
 }

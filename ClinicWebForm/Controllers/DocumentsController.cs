@@ -16,6 +16,8 @@ namespace ClinicWebForm.Controllers
         // GET: Form
         public ActionResult Index()
         {
+            ViewBag.Forms = AppUtils.LoadForms();
+
             return View();
         }
 
