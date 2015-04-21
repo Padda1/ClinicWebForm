@@ -26,10 +26,12 @@
 
 @using (Html.BeginForm())
 {
-    <div class="panel panel-default">
-        <label>Form:</label>
-        @Html.DropDownList("Forms")
+    <div class="form-horizontal">
+        <div class="panel panel-default">
+            <label for="Forms" class="control-label col-md-2">Forms </label>
+            @Html.DropDownList("Forms", new SelectList(Model.Forms, "Id", "FormName"), htmlAttributes: new { @class = "form-control dropdown-toggle col-md-10" })
+        </div>
     </div>
 }
-
+<br />
 <div id="partialPlaceHolder" class="panel panel-default" style="display:none;"></div>

@@ -10,27 +10,21 @@
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
         <div class="form-group">
-            @Html.LabelFor(model => model.CHW, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.CHW.Signature, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.CHW, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.CHW, "", new { @class = "text-danger" })
+                @Html.EditorFor(model => model.CHW.Signature, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.CHW.Signature, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
-            <label for="Clinics" class="control-label col-md-2">Clinics</label>
-            <div class="btn btn-default dropdown-toggle col-md-10">
-                @Html.DropDownList("Clinics")
-                @Html.ValidationMessageFor(model => model.Ward, "", new { @class = "text-danger" })
-            </div>
+            <label for="Clinics" class="control-label col-md-2">Clinics </label>
+            @Html.DropDownList("Clinics", new SelectList(Model.Clinics, "Id", "ClinicDescription"), htmlAttributes: new { @class = "form-control dropdown-toggle col-md-10" })
         </div>
 
         <div class="form-group">
-            <label for="Wards" class="control-label col-md-2">Wards</label>
-            <div class="btn btn-default dropdown-toggle col-md-10">
-                @Html.DropDownList("Wards")
-                @Html.ValidationMessageFor(model => model.Ward, "", new { @class = "text-danger" })
-            </div>
+            <label for="Clinics" class="control-label col-md-2">Wards </label>
+            @Html.DropDownList("Wards", new SelectList(Model.Wards, "Id", "WardDescription"), htmlAttributes: new { @class = "form-control dropdown-toggle col-md-10" })
         </div>
 
         <div class="form-group">

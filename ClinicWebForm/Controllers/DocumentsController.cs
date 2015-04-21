@@ -16,46 +16,57 @@ namespace ClinicWebForm.Controllers
         // GET: Form
         public ActionResult Index()
         {
-            ViewBag.Forms = AppUtils.LoadForms();
+            FormsViewModel formsViewModel = new FormsViewModel();
+            formsViewModel.Forms = AppUtils.LoadForms();
 
-            return View();
+            return View(formsViewModel);
         }
 
         public ActionResult SelectedForm(int id)
         {
-            string viewName = "";
+            string viewName = "";            
 
             switch (id)
             {
                 case 1:
-                    viewName += "HouseholdRegistration/_CreateHouseHoldRegistration";
-                    LoadHouseholdRegistration();
-                    break;
+                    return LoadHouseholdRegistration();
                 case 2:
                     viewName += "IndividualAdultHealthRecord/_CreateIndividualAdultHealthRecord";
-                    break;
+                    return PartialView(viewName);
                 case 3:
                     viewName += "MaternalandChildHealthRecord/_CreateMaternalandChildHealthRecord";
-                    break;
+                    return PartialView(viewName);
                 case 4:
                     viewName += "OutreachTeamMonthlySummary/_CreateOutreachTeamMonthlySummary";
                     LoadOutreachTeamMonthlySummary();
-                    break;
+                    return PartialView(viewName);
                 case 5:
                     viewName += "Referral/_CreateReferralForm";
-                    break;
+                    return PartialView(viewName);
                 case 6:
                     viewName += "_CreateVisitTick";
-                    break;
+                    return PartialView(viewName);
+                default:
+                    return PartialView(viewName);
             }
-
-            return PartialView(viewName);
         }
 
-        public void LoadHouseholdRegistration()
+        private PartialViewResult LoadHouseholdRegistration()
         {
-            ViewBag.Clinics = AppUtils.LoadClinics();
-            ViewBag.Wards = AppUtils.LoadWards();
+            string viewName = "HouseholdRegistration/_CreateHouseHoldRegistration";
+            var householdRegForm = LoadHouseholdRegistrationObject();
+
+            return PartialView(viewName,householdRegForm);
+        }
+
+        public HouseholdRegistrationViewModel LoadHouseholdRegistrationObject()
+        {
+            HouseholdRegistrationViewModel objHouseholdRegistration = new HouseholdRegistrationViewModel();
+            objHouseholdRegistration.Clinics = AppUtils.LoadClinics();
+            objHouseholdRegistration.Wards = AppUtils.LoadWards();
+            //objHouseholdRegistration.CHW = AppUtils.LoadCHW();
+
+            return objHouseholdRegistration;
         }
 
         public void LoadOutreachTeamMonthlySummary()

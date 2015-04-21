@@ -1,4 +1,5 @@
 ﻿using ClinicWebForm.Context;
+using ClinicWebForm.Models;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -10,55 +11,45 @@ namespace ClinicWebForm.Utils
     {
         public static string WordTemplateDirectory = HttpContext.Current.Server.MapPath("~/DocumentTemplates/");
 
-        public static List<SelectListItem> LoadClinics()
+        public static List<Clinic> LoadClinics()
         {
-            List<SelectListItem> objClinics = new List<SelectListItem>();
+            var objClinics = new List<Clinic>();
 
             using (var dbContext = new ApplicationDbContext())
             {
-                var clinics = dbContext.Clinics.Where(c => c.Active == true).ToList();
-
-                foreach (var clinic in clinics)
-                {
-                    objClinics.Add(new SelectListItem { Value = clinic.Id.ToString(), Text = clinic.ClinicDescription });
-                }
+                objClinics = dbContext.Clinics.Where(c => c.Active == true).ToList();
             }
 
             return objClinics;
         }
 
-        public static List<SelectListItem> LoadWards()
+        public static List<Ward> LoadWards()
         {
-            List<SelectListItem> objWard = new List<SelectListItem>();
+            var objWards = new List<Ward>();
 
             using (var dbContext = new ApplicationDbContext())
             {
-                var wards = dbContext.Wards.Where(c => c.Active == true).ToList();
-
-                foreach (var ward in wards)
-                {
-                    objWard.Add(new SelectListItem { Value = ward.Id.ToString(), Text = ward.WardDescription });
-                }
+                objWards = dbContext.Wards.Where(c => c.Active == true).ToList();
             }
 
-            return objWard;
+            return objWards;
         }
 
-        public static List<SelectListItem> LoadForms()
+        public static List<Form> LoadForms()
         {
-            List<SelectListItem> objForms = new List<SelectListItem>();
+            var objForms = new List<Form>();
 
             using (var dbContext = new ApplicationDbContext())
             {
-                var forms = dbContext.Forms.Where(c => c.Active == true).ToList();
-
-                foreach (var form in forms)
-                {
-                    objForms.Add(new SelectListItem { Value = form.Id.ToString(), Text = form.FormName });
-                }
+                objForms = dbContext.Forms.Where(c => c.Active == true).ToList();
             }
 
             return objForms;
         }
+
+        //public static CHW LoadCHW()
+        //{
+            
+        //}
     }
 }

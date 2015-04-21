@@ -14,10 +14,10 @@ namespace ClinicWebForm.Models
         public virtual CHW CHW { get; set; }
 
         [Required]
-        public virtual Clinic Clinic { get; set; }
+        public virtual List<Clinic> Clinics { get; set; }
 
         [Required]
-        public virtual Ward Ward { get; set; }
+        public virtual List<Ward> Wards { get; set; }
 
         [Required]
         public virtual House House { get; set; }
