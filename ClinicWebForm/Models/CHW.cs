@@ -11,7 +11,7 @@ namespace ClinicWebForm.Models
         [Key]
         public int Id { get; set; }
 
-        [Required]
+        //[Required]
         public ApplicationUser User { get; set; }
 
         [Display(Name = "Household Id Name")]

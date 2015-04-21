@@ -50,7 +50,6 @@ namespace ClinicWebForm.Models
     {
         [Required]
         [Display(Name = "Username")]
-        //[EmailAddress]
         public string Username { get; set; }
 
         [Required]
@@ -64,8 +63,31 @@ namespace ClinicWebForm.Models
 
     public class RegisterViewModel
     {
+        [Display(Name = "Household Id Name")]
+        public string HouseholdIdName { get; set; }
+
         [Required]
-        //[EmailAddress]
+        [MinLength(2)]
+        [MaxLength(10)]
+        [Display(Name = "Household Id Number")]
+        public string HouseholdIdNumber { get; set; }
+
+        [Required]
+        [MinLength(2)]
+        [MaxLength(100)]
+        public string Name { get; set; }
+
+        [Required]
+        [MinLength(2)]
+        [MaxLength(100)]
+        public string Surname { get; set; }
+
+        [Required]
+        [MinLength(2)]
+        [MaxLength(100)]
+        public string Signature { get; set; }
+
+        [Required]
         [Display(Name = "Username")]
         public string Username { get; set; }
 
@@ -84,7 +106,6 @@ namespace ClinicWebForm.Models
     public class ResetPasswordViewModel
     {
         [Required]
-        //[EmailAddress]
         [Display(Name = "Username")]
         public string Username { get; set; }
 

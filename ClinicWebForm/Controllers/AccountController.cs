@@ -155,6 +155,21 @@ namespace ClinicWebForm.Controllers
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
+                    var chw = new CHW 
+                    {
+                        HouseholdIdName = model.HouseholdIdName,
+                        HouseholdIdNumber = model.HouseholdIdNumber,
+                        Name = model.Name,
+                        Surname = model.Surname,
+                        Signature = model.Signature
+                    };
+
+                    using(var context = new ClinicWebForm.Context.ApplicationDbContext())
+                    {
+                        context.CHWs.Add(chw);
+                        context.SaveChanges();
+                    }
+
                     await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
                     
                     // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771
