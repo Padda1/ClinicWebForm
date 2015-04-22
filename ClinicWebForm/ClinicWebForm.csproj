@@ -323,7 +323,7 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Documents\Index.cshtml" />
-    <Content Include="Views\Shared\EditorTemplates\IndividualMember2.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\IndividualMember.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\Questions.cshtml" />
     <Content Include="Views\Documents\HouseholdRegistration\_CreateHouseHoldRegistration.cshtml" />
     <Content Include="Views\Documents\IndividualAdultHealthRecord\_CreateIndividualAdultHealthRecord.cshtml" />

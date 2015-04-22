@@ -25,7 +25,7 @@ namespace ClinicWebForm.Controllers
 
         public ActionResult SelectedForm(int id)
         {
-            string viewName = "";            
+            string viewName = "";
 
             switch (id)
             {
@@ -34,18 +34,13 @@ namespace ClinicWebForm.Controllers
                 case 2:
                     return LoadIndividualAdultHealthRecord();
                 case 3:
-                    viewName += "MaternalandChildHealthRecord/_CreateMaternalandChildHealthRecord";
-                    return PartialView(viewName);
+                    return LoadMaternalandChildHealthRecord();
                 case 4:
-                    viewName += "OutreachTeamMonthlySummary/_CreateOutreachTeamMonthlySummary";
-                    LoadOutreachTeamMonthlySummary();
-                    return PartialView(viewName);
+                    return LoadOutreachTeamMonthlySummary();
                 case 5:
-                    viewName += "Referral/_CreateReferralForm";
-                    return PartialView(viewName);
+                    return LoadReferral();
                 case 6:
-                    viewName += "_CreateVisitTick";
-                    return PartialView(viewName);
+                    return LoadVisitSummary();
                 default:
                     return PartialView(viewName);
             }
@@ -56,10 +51,10 @@ namespace ClinicWebForm.Controllers
             string viewName = "HouseholdRegistration/_CreateHouseHoldRegistration";
             var householdRegForm = LoadHouseholdRegistrationObject();
 
-            return PartialView(viewName,householdRegForm);
+            return PartialView(viewName, householdRegForm);
         }
 
-        public HouseholdRegistrationViewModel LoadHouseholdRegistrationObject()
+        private HouseholdRegistrationViewModel LoadHouseholdRegistrationObject()
         {
             HouseholdRegistrationViewModel objHouseholdRegistration = new HouseholdRegistrationViewModel();
             objHouseholdRegistration.Clinics = AppUtils.LoadClinics();
@@ -72,10 +67,76 @@ namespace ClinicWebForm.Controllers
         private PartialViewResult LoadIndividualAdultHealthRecord()
         {
             string viewName = "IndividualAdultHealthRecord/_CreateIndividualAdultHealthRecord";
+            var objIndividualHealthRecord = LoadIndividualAdultHealthRecordObject();
+
             return PartialView(viewName);
         }
 
+        private IndividualAdultHealthRecordViewModel LoadIndividualAdultHealthRecordObject()
+        {
+            IndividualAdultHealthRecordViewModel objIndividualHealthRecord = new IndividualAdultHealthRecordViewModel();
 
+
+            return objIndividualHealthRecord;
+        }
+
+        private PartialViewResult LoadMaternalandChildHealthRecord()
+        {
+            string viewName = "MaternalandChildHealthRecord/_CreateMaternalandChildHealthRecord";
+            return PartialView(viewName);
+        }
+
+        private IndividualAdultHealthRecordViewModel LoadMaternalandChildHealthRecordObject()
+        {
+            IndividualAdultHealthRecordViewModel objIndividualHealthRecord = new IndividualAdultHealthRecordViewModel();
+
+
+            return objIndividualHealthRecord;
+        }
+
+        private PartialViewResult LoadOutreachTeamMonthlySummary()
+        {
+            string viewName = "OutreachTeamMonthlySummary/_CreateOutreachTeamMonthlySummary";
+
+
+            return PartialView(viewName);
+        }
+
+        private IndividualAdultHealthRecordViewModel LoadOutreachTeamMonthlySummaryObject()
+        {
+            IndividualAdultHealthRecordViewModel objIndividualHealthRecord = new IndividualAdultHealthRecordViewModel();
+
+
+            return objIndividualHealthRecord;
+        }
+
+        private PartialViewResult LoadReferral()
+        {
+            string viewName = "Referral/_CreateReferralForm";
+            return PartialView(viewName);
+        }
+
+        private IndividualAdultHealthRecordViewModel LoadReferralObject()
+        {
+            IndividualAdultHealthRecordViewModel objIndividualHealthRecord = new IndividualAdultHealthRecordViewModel();
+
+
+            return objIndividualHealthRecord;
+        }
+
+        private PartialViewResult LoadVisitSummary()
+        {
+            string viewName = "_CreateVisitTick";
+            return PartialView(viewName);
+        }
+
+        private IndividualAdultHealthRecordViewModel LoadVisitSummaryObject()
+        {
+            IndividualAdultHealthRecordViewModel objIndividualHealthRecord = new IndividualAdultHealthRecordViewModel();
+
+
+            return objIndividualHealthRecord;
+        }
 
 
         public async Task<ActionResult> SubmitHouseHoldRegistration(HouseholdRegistrationViewModel model)
@@ -93,14 +154,6 @@ namespace ClinicWebForm.Controllers
             }
 
             return RedirectToAction("Index");
-        }
-
-
-
-        public void LoadOutreachTeamMonthlySummary()
-        {
-            ViewBag.Clinics = AppUtils.LoadClinics();
-            ViewBag.Wards = AppUtils.LoadWards();
         }
 
         public ActionResult ListAll()
