@@ -19,14 +19,11 @@ namespace ClinicWebForm.Models
         [Required]
         public virtual List<Ward> Wards { get; set; }
 
-        [Required]
+        //[Required]
         public virtual House House { get; set; }
 
         [Required]
-        public virtual Household Household { get; set; }
-
-        [Required]
-        public virtual List<IndividualMember> Members { get; set; }
+        public virtual List<Household> Households { get; set; }
 
         [Required]
         public virtual List<Questions> Questions { get; set; }

@@ -28,20 +28,19 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.House, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.House, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.House, "", new { @class = "text-danger" })
-            </div>
+            <label for="Households" class="control-label col-md-2">Household </label>
+            @Html.DropDownList("Households", new SelectList(Model.Households, "Id", "RegistrationNumber"), htmlAttributes: new { @class = "form-control dropdown-toggle col-md-9" })
+            @*<input class="btn btn-default col-md-1" type="submit" value="Add New" formaction="@Url.Action("Create", "Households")"  />*@
+            <input class="btn btn-default col-md-1" type="submit" value="Add New" formaction="@Url.Action("Create", "Households")" />
         </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.Members, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Members, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Members, "", new { @class = "text-danger" })
-            </div>
-        </div>
+        @*<div class="form-group">
+                @Html.LabelFor(model => model.House, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.House, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.House, "", new { @class = "text-danger" })
+                </div>
+            </div>*@
 
         <div class="form-group">
             @Html.LabelFor(model => model.Questions, htmlAttributes: new { @class = "control-label col-md-2" })

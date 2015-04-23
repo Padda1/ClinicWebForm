@@ -10,12 +10,19 @@ namespace ClinicWebForm.Models
     {
         [Key]
         public int Id { get; set; }
-        public virtual List<Visit> Visit { get; set; }
+
+        [Required(ErrorMessage="{0} is required.")]
+        [MinLength(2)]
+        [Display(Name = "Registration Number")]
         public string RegistrationNumber { get; set; }
+
+        public virtual List<Visit> Visits { get; set; }
+        
         public virtual Respondent Respondent { get; set; }
         public string Address { get; set; }
         public bool AllMembersRegistered { get; set; }
         public bool PregnancyPerionIn6Weeks { get; set; }
+        public virtual List<IndividualMember> Members { get; set; }
 
         [DataType(DataType.MultilineText)]
         public string Note { get; set; }

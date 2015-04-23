@@ -4,6 +4,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.Owin;
+using Microsoft.Owin.Security;
 
 namespace ClinicWebForm.Utils
 {
@@ -20,6 +23,8 @@ namespace ClinicWebForm.Utils
                 objClinics = dbContext.Clinics.Where(c => c.Active == true).ToList();
             }
 
+            objClinics.Insert(0, new Clinic { Id = 0, ClinicDescription = "Select", Active = true });
+
             return objClinics;
         }
 
@@ -31,6 +36,8 @@ namespace ClinicWebForm.Utils
             {
                 objWards = dbContext.Wards.Where(c => c.Active == true).ToList();
             }
+
+            objWards.Insert(0, new Ward { Id = 0, WardDescription = "Select", Active = true });
 
             return objWards;
         }
@@ -44,17 +51,40 @@ namespace ClinicWebForm.Utils
                 objForms = dbContext.Forms.Where(c => c.Active == true).ToList();
             }
 
+            objForms.Insert(0, new Form { Id = 0, FormName = "Select", Active = true });
+
             return objForms;
         }
 
-        
+        public static List<Household> LoadHouseholds()
+        {
+            var objHouseholds = new List<Household>();
 
-        public static HouseholdRegistrationViewModel LoadHouseholdRegistration(ApplicationUser user)
+            using (var dbContext = new ApplicationDbContext())
+            {
+                objHouseholds = dbContext.Households.ToList();
+            }
+
+            objHouseholds.Insert(0, new Household { Id = 0, RegistrationNumber = "Select" });
+
+            return objHouseholds;
+        }
+
+        public static CHW CurrentCHW()
+        {
+            var userManager = HttpContext.Current.GetOwinContext().GetUserManager<ApplicationUserManager>();
+            var user = userManager.FindById(HttpContext.Current.User.Identity.GetUserId());
+
+            return user.CHW;
+        }
+
+        public static HouseholdRegistrationViewModel LoadHouseholdRegistration()
         {
             HouseholdRegistrationViewModel objHouseholdRegistration = new HouseholdRegistrationViewModel();
             objHouseholdRegistration.Clinics = LoadClinics();
             objHouseholdRegistration.Wards = LoadWards();
-            objHouseholdRegistration.CHW = user.CHW;
+            objHouseholdRegistration.CHW = CurrentCHW();
+            objHouseholdRegistration.Households = LoadHouseholds();
 
 
             return objHouseholdRegistration;

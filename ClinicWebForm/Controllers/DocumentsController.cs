@@ -8,13 +8,10 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
-using Microsoft.AspNet.Identity;
-using Microsoft.AspNet.Identity.Owin;
-using Microsoft.Owin.Security;
 
 namespace ClinicWebForm.Controllers
 {
-    //[Authorize]
+    [Authorize]
     public class DocumentsController : Controller
     {
         // GET: Form
@@ -52,11 +49,7 @@ namespace ClinicWebForm.Controllers
         private PartialViewResult LoadHouseholdRegistration()
         {
             string viewName = "HouseholdRegistration/_CreateHouseHoldRegistration";
-
-            var userManager = HttpContext.GetOwinContext().GetUserManager<ApplicationUserManager>();
-            var user = userManager.FindById(User.Identity.GetUserId());
-
-            var householdRegForm = AppUtils.LoadHouseholdRegistration(user);
+            var householdRegForm = AppUtils.LoadHouseholdRegistration();
 
             return PartialView(viewName, householdRegForm);
         }
