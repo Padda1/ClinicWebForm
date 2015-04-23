@@ -25,8 +25,6 @@ namespace ClinicWebForm.Controllers
 
         public ActionResult SelectedForm(int id)
         {
-            string viewName = "";
-
             switch (id)
             {
                 case 1:
@@ -42,7 +40,8 @@ namespace ClinicWebForm.Controllers
                 case 6:
                     return LoadVisitSummary();
                 default:
-                    return PartialView(viewName);
+                    //return View("Index");
+                    return RedirectToAction("Index");
             }
         }
 

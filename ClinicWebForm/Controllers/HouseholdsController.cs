@@ -40,7 +40,8 @@ namespace ClinicWebForm.Controllers
         // GET: Households/Create
         public ActionResult Create()
         {
-            return View();
+            //return View();
+            return PartialView();
         }
 
         // POST: Households/Create

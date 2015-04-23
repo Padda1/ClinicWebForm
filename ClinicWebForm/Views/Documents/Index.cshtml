@@ -6,15 +6,19 @@
             /* Get the selected value of dropdownlist */
             var selectedID = $('#Forms').val();
 
-            /* Request the partial view with .get request. */
-            $.get('/Documents/SelectedForm/' + selectedID, function (data) {
+            if (selectedID == 0){
+                window.location.replace('/Documents');
+            }
+            else {
+                /* Request the partial view with .get request. */
+                $.get('/Documents/SelectedForm/' + selectedID, function (data) {
 
-                /* data is the pure html returned from action method, load it to your page */
-                $('#partialPlaceHolder').html(data);
-                /* little fade in effect */
-                $('#partialPlaceHolder').fadeIn('fast');
-            });
-
+                    /* data is the pure html returned from action method, load it to your page */
+                    $('#partialPlaceHolder').html(data);
+                    /* little fade in effect */
+                    $('#partialPlaceHolder').fadeIn('fast');
+                });
+            }
         });
     });
 </script>

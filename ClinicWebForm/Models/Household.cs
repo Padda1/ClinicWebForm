@@ -19,9 +19,15 @@ namespace ClinicWebForm.Models
         public virtual List<Visit> Visits { get; set; }
         
         public virtual Respondent Respondent { get; set; }
+
+        [Required]
+        [MinLength(2)]
+        [DataType(DataType.MultilineText)]
         public string Address { get; set; }
+
         public bool AllMembersRegistered { get; set; }
         public bool PregnancyPerionIn6Weeks { get; set; }
+        
         public virtual List<IndividualMember> Members { get; set; }
 
         [DataType(DataType.MultilineText)]
