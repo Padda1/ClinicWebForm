@@ -213,13 +213,9 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Hubs\HitCounterHub.cs" />
-    <Compile Include="Migrations\201504121407543_AddedWardController.cs" />
-    <Compile Include="Migrations\201504121407543_AddedWardController.Designer.cs">
-      <DependentUpon>201504121407543_AddedWardController.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201504121410013_UpdatedWardModel.cs" />
-    <Compile Include="Migrations\201504121410013_UpdatedWardModel.Designer.cs">
-      <DependentUpon>201504121410013_UpdatedWardModel.cs</DependentUpon>
+    <Compile Include="Migrations\201504230843183_Init.cs" />
+    <Compile Include="Migrations\201504230843183_Init.Designer.cs">
+      <DependentUpon>201504230843183_Init.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -395,11 +391,8 @@
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201504121407543_AddedWardController.resx">
-      <DependentUpon>201504121407543_AddedWardController.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201504121410013_UpdatedWardModel.resx">
-      <DependentUpon>201504121410013_UpdatedWardModel.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201504230843183_Init.resx">
+      <DependentUpon>201504230843183_Init.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

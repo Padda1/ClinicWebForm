@@ -8,6 +8,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.Owin;
+using Microsoft.Owin.Security;
 
 namespace ClinicWebForm.Controllers
 {
@@ -49,35 +52,21 @@ namespace ClinicWebForm.Controllers
         private PartialViewResult LoadHouseholdRegistration()
         {
             string viewName = "HouseholdRegistration/_CreateHouseHoldRegistration";
-            var householdRegForm = LoadHouseholdRegistrationObject();
+
+            var userManager = HttpContext.GetOwinContext().GetUserManager<ApplicationUserManager>();
+            var user = userManager.FindById(User.Identity.GetUserId());
+
+            var householdRegForm = AppUtils.LoadHouseholdRegistration(user);
 
             return PartialView(viewName, householdRegForm);
-        }
-
-        private HouseholdRegistrationViewModel LoadHouseholdRegistrationObject()
-        {
-            HouseholdRegistrationViewModel objHouseholdRegistration = new HouseholdRegistrationViewModel();
-            objHouseholdRegistration.Clinics = AppUtils.LoadClinics();
-            objHouseholdRegistration.Wards = AppUtils.LoadWards();
-            //objHouseholdRegistration.CHW = AppUtils.LoadCHW();
-
-            return objHouseholdRegistration;
         }
 
         private PartialViewResult LoadIndividualAdultHealthRecord()
         {
             string viewName = "IndividualAdultHealthRecord/_CreateIndividualAdultHealthRecord";
-            var objIndividualHealthRecord = LoadIndividualAdultHealthRecordObject();
+            var objIndividualHealthRecord = AppUtils.LoadIndividualAdultHealthRecord();
 
             return PartialView(viewName);
-        }
-
-        private IndividualAdultHealthRecordViewModel LoadIndividualAdultHealthRecordObject()
-        {
-            IndividualAdultHealthRecordViewModel objIndividualHealthRecord = new IndividualAdultHealthRecordViewModel();
-
-
-            return objIndividualHealthRecord;
         }
 
         private PartialViewResult LoadMaternalandChildHealthRecord()
@@ -86,28 +75,10 @@ namespace ClinicWebForm.Controllers
             return PartialView(viewName);
         }
 
-        private IndividualAdultHealthRecordViewModel LoadMaternalandChildHealthRecordObject()
-        {
-            IndividualAdultHealthRecordViewModel objIndividualHealthRecord = new IndividualAdultHealthRecordViewModel();
-
-
-            return objIndividualHealthRecord;
-        }
-
         private PartialViewResult LoadOutreachTeamMonthlySummary()
         {
             string viewName = "OutreachTeamMonthlySummary/_CreateOutreachTeamMonthlySummary";
-
-
             return PartialView(viewName);
-        }
-
-        private IndividualAdultHealthRecordViewModel LoadOutreachTeamMonthlySummaryObject()
-        {
-            IndividualAdultHealthRecordViewModel objIndividualHealthRecord = new IndividualAdultHealthRecordViewModel();
-
-
-            return objIndividualHealthRecord;
         }
 
         private PartialViewResult LoadReferral()
@@ -116,28 +87,11 @@ namespace ClinicWebForm.Controllers
             return PartialView(viewName);
         }
 
-        private IndividualAdultHealthRecordViewModel LoadReferralObject()
-        {
-            IndividualAdultHealthRecordViewModel objIndividualHealthRecord = new IndividualAdultHealthRecordViewModel();
-
-
-            return objIndividualHealthRecord;
-        }
-
         private PartialViewResult LoadVisitSummary()
         {
             string viewName = "_CreateVisitTick";
             return PartialView(viewName);
         }
-
-        private IndividualAdultHealthRecordViewModel LoadVisitSummaryObject()
-        {
-            IndividualAdultHealthRecordViewModel objIndividualHealthRecord = new IndividualAdultHealthRecordViewModel();
-
-
-            return objIndividualHealthRecord;
-        }
-
 
         public async Task<ActionResult> SubmitHouseHoldRegistration(HouseholdRegistrationViewModel model)
         {

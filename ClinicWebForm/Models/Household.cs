@@ -10,7 +10,7 @@ namespace ClinicWebForm.Models
     {
         [Key]
         public int Id { get; set; }
-        public virtual Visit Visit { get; set; }
+        public virtual List<Visit> Visit { get; set; }
         public string RegistrationNumber { get; set; }
         public virtual Respondent Respondent { get; set; }
         public string Address { get; set; }

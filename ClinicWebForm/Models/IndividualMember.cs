@@ -11,7 +11,7 @@ namespace ClinicWebForm.Models
         [Key]
         public int Id { get; set; }
 
-        public virtual Household Household { get; set; }
+        //public virtual Household Household { get; set; }
         public virtual Visit Visit { get; set; }
         public virtual NextOfKin NextOfKin { get; set; }
         public virtual RelationshipStatus RelationshipStatus { get; set; }

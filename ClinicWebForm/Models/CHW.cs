@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 
@@ -10,9 +11,6 @@ namespace ClinicWebForm.Models
     {
         [Key]
         public int Id { get; set; }
-
-        //[Required]
-        public ApplicationUser User { get; set; }
 
         [Display(Name = "Household Id Name")]
         public string HouseholdIdName { get; set; }

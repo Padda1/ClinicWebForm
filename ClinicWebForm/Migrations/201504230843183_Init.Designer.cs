@@ -7,13 +7,13 @@ namespace ClinicWebForm.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.1-30610")]
-    public sealed partial class UpdatedWardModel : IMigrationMetadata
+    public sealed partial class Init : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(UpdatedWardModel));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(Init));
         
         string IMigrationMetadata.Id
         {
-            get { return "201504121410013_UpdatedWardModel"; }
+            get { return "201504230843183_Init"; }
         }
         
         string IMigrationMetadata.Source

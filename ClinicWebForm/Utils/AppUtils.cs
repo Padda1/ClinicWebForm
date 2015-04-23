@@ -47,9 +47,55 @@ namespace ClinicWebForm.Utils
             return objForms;
         }
 
-        //public static CHW LoadCHW()
-        //{
-            
-        //}
+        
+
+        public static HouseholdRegistrationViewModel LoadHouseholdRegistration(ApplicationUser user)
+        {
+            HouseholdRegistrationViewModel objHouseholdRegistration = new HouseholdRegistrationViewModel();
+            objHouseholdRegistration.Clinics = LoadClinics();
+            objHouseholdRegistration.Wards = LoadWards();
+            objHouseholdRegistration.CHW = user.CHW;
+
+
+            return objHouseholdRegistration;
+        }
+
+        public static IndividualAdultHealthRecordViewModel LoadIndividualAdultHealthRecord()
+        {
+            IndividualAdultHealthRecordViewModel objIndividualHealthRecord = new IndividualAdultHealthRecordViewModel();
+
+
+            return objIndividualHealthRecord;
+        }
+
+        public static IndividualAdultHealthRecordViewModel LoadMaternalandChildHealthRecord()
+        {
+            IndividualAdultHealthRecordViewModel objIndividualHealthRecord = new IndividualAdultHealthRecordViewModel();
+
+
+            return objIndividualHealthRecord;
+        }
+
+        public static IndividualAdultHealthRecordViewModel LoadOutreachTeamMonthlySummary()
+        {
+            IndividualAdultHealthRecordViewModel objIndividualHealthRecord = new IndividualAdultHealthRecordViewModel();
+
+
+            return objIndividualHealthRecord;
+        }
+
+        public static IndividualAdultHealthRecordViewModel LoadReferral()
+        {
+            IndividualAdultHealthRecordViewModel objIndividualHealthRecord = new IndividualAdultHealthRecordViewModel();
+            return objIndividualHealthRecord;
+        }
+
+        public static IndividualAdultHealthRecordViewModel LoadVisitSummary()
+        {
+            IndividualAdultHealthRecordViewModel objIndividualHealthRecord = new IndividualAdultHealthRecordViewModel();
+
+
+            return objIndividualHealthRecord;
+        }
     }
 }

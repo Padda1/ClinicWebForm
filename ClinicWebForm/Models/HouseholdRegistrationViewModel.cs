@@ -23,6 +23,9 @@ namespace ClinicWebForm.Models
         public virtual House House { get; set; }
 
         [Required]
+        public virtual Household Household { get; set; }
+
+        [Required]
         public virtual List<IndividualMember> Members { get; set; }
 
         [Required]
