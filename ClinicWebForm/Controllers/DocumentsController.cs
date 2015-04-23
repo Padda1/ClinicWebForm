@@ -40,7 +40,6 @@ namespace ClinicWebForm.Controllers
                 case 6:
                     return LoadVisitSummary();
                 default:
-                    //return View("Index");
                     return RedirectToAction("Index");
             }
         }
