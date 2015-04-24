@@ -12,5 +12,6 @@ namespace ClinicWebForm.Models
         public int Id { get; set; }
         public string CategoryDescription { get; set; }
         public bool Active { get; set; }
+        public List<Questions> Questions { get; set; }
     }
 }

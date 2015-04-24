@@ -26,6 +26,6 @@ namespace ClinicWebForm.Models
         public virtual List<Household> Households { get; set; }
 
         [Required]
-        public virtual List<Questions> Questions { get; set; }
+        public virtual List<QuestionCategory> QuestionCategories { get; set; }
     }
 }
