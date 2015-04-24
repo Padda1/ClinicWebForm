@@ -25,7 +25,10 @@ namespace ClinicWebForm.Models
         [DataType(DataType.MultilineText)]
         public string Address { get; set; }
 
+        [Display(Name = "All Members Registered")]
         public bool AllMembersRegistered { get; set; }
+
+        [Display(Name = "Pregnancy Perion In 6 Weeks")]
         public bool PregnancyPerionIn6Weeks { get; set; }
         
         public virtual List<IndividualMember> Members { get; set; }

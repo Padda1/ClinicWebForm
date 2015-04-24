@@ -4,17 +4,17 @@
 <script type="text/javascript">
     $(document).ready(function () {
 
-        $('#householdPlaceHolder').hide();
+        $('#phHousehold').hide();
 
         $('#AddHousehold').click(function () {
 
-            if ($('#householdPlaceHolder').is(':visible') == false) {
+            if ($('#phHousehold').is(':visible') == false) {
                 $('#AddHousehold').val('Cancel');
-                $('#householdPlaceHolder').show();
+                $('#phHousehold').show();
             }
             else {
                 $('#AddHousehold').val('Add New');
-                $('#householdPlaceHolder').hide();
+                $('#phHousehold').hide();
             }
         });
     });
@@ -53,8 +53,8 @@
             <input class="btn btn-default col-md-1" type="button" id="AddHousehold" value="Add New" />
         </div>
 
-        <div id="householdPlaceHolder" class="panel panel-default">
-            @using (Ajax.BeginForm("Create", "Household", new AjaxOptions() { UpdateTargetId = "householdPlaceHolder" }))            
+        <div id="phHousehold" class="panel panel-default">
+            @using (Ajax.BeginForm("Create", "Households", new AjaxOptions() { UpdateTargetId = "phHousehold" }))
             {
                 @*@Html.AntiForgeryToken()*@
                 @Html.Action("Create", "Households")
@@ -62,20 +62,23 @@
         </div>
 
         <div class="form-group">
-                @Html.LabelFor(model => model.House, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.House, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.House, "", new { @class = "text-danger" })
-                </div>
-            </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Questions, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.House, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Questions, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Questions, "", new { @class = "text-danger" })
+                @Html.EditorFor(model => model.House, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.House, "", new { @class = "text-danger" })
             </div>
         </div>
+
+        @*<div class="form-group">
+            @foreach (var questionCategories in Model.QuestionCategories)
+            {
+                foreach (var question in questionCategories.Questions)
+                {
+                    @Html.LabelFor(model => question.QuestionDescription, htmlAttributes: new { @class = "control-label col-md-2" })
+                    @Html.EditorFor(model => question.QuestionValue, new{htmlAttributes = new { @class = "control-label col-md-10" }})
+                }
+            }
+        </div>*@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">

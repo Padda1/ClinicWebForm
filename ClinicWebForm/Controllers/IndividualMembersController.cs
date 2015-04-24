@@ -9,113 +9,110 @@ using System.Web;
 using System.Web.Mvc;
 using ClinicWebForm.Context;
 using ClinicWebForm.Models;
-using ClinicWebForm.Utils;
 
 namespace ClinicWebForm.Controllers
 {
-    public class HouseholdsController : Controller
+    public class IndividualMembersController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
-        // GET: Households
+        // GET: IndividualMembers
         public async Task<ActionResult> Index()
         {
-            return View(await db.Households.ToListAsync());
+            return View(await db.IndividualMembers.ToListAsync());
         }
 
-        // GET: Households/Details/5
+        // GET: IndividualMembers/Details/5
         public async Task<ActionResult> Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Household household = await db.Households.FindAsync(id);
-            if (household == null)
+            IndividualMember individualMember = await db.IndividualMembers.FindAsync(id);
+            if (individualMember == null)
             {
                 return HttpNotFound();
             }
-            return View(household);
+            return View(individualMember);
         }
 
-        // GET: Households/Create
+        // GET: IndividualMembers/Create
         public ActionResult Create()
         {
-            ViewBag.Members = AppUtils.LoadMembers();
-
             return PartialView();
         }
 
-        // POST: Households/Create
+        // POST: IndividualMembers/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        //[ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create([Bind(Include = "Id,RegistrationNumber,Address,AllMembersRegistered,PregnancyPerionIn6Weeks,Note")] Household household)
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> Create([Bind(Include = "Id,Name,Surname,DOB,Age,Gender,Tel,BirthWeight,ReceivingGrant,Head,IsReferral")] IndividualMember individualMember)
         {
             if (ModelState.IsValid)
             {
-                db.Households.Add(household);
+                db.IndividualMembers.Add(individualMember);
                 await db.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
 
-            return View(household);
+            return View(individualMember);
         }
 
-        // GET: Households/Edit/5
+        // GET: IndividualMembers/Edit/5
         public async Task<ActionResult> Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Household household = await db.Households.FindAsync(id);
-            if (household == null)
+            IndividualMember individualMember = await db.IndividualMembers.FindAsync(id);
+            if (individualMember == null)
             {
                 return HttpNotFound();
             }
-            return View(household);
+            return View(individualMember);
         }
 
-        // POST: Households/Edit/5
+        // POST: IndividualMembers/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit([Bind(Include = "Id,RegistrationNumber,Address,AllMembersRegistered,PregnancyPerionIn6Weeks,Note")] Household household)
+        public async Task<ActionResult> Edit([Bind(Include = "Id,Name,Surname,DOB,Age,Gender,Tel,BirthWeight,ReceivingGrant,Head,IsReferral")] IndividualMember individualMember)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(household).State = EntityState.Modified;
+                db.Entry(individualMember).State = EntityState.Modified;
                 await db.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
-            return View(household);
+            return View(individualMember);
         }
 
-        // GET: Households/Delete/5
+        // GET: IndividualMembers/Delete/5
         public async Task<ActionResult> Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Household household = await db.Households.FindAsync(id);
-            if (household == null)
+            IndividualMember individualMember = await db.IndividualMembers.FindAsync(id);
+            if (individualMember == null)
             {
                 return HttpNotFound();
             }
-            return View(household);
+            return View(individualMember);
         }
 
-        // POST: Households/Delete/5
+        // POST: IndividualMembers/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> DeleteConfirmed(int id)
         {
-            Household household = await db.Households.FindAsync(id);
-            db.Households.Remove(household);
+            IndividualMember individualMember = await db.IndividualMembers.FindAsync(id);
+            db.IndividualMembers.Remove(individualMember);
             await db.SaveChangesAsync();
             return RedirectToAction("Index");
         }

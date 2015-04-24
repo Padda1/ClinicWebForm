@@ -11,7 +11,7 @@ namespace ClinicWebForm.Models
         [Key]
         public int Id { get; set; }        
         public string QuestionDescription { get; set; }
-        public string Value { get; set; }
+        public string QuestionValue { get; set; }
         public bool Active { get; set; }
     }
 }

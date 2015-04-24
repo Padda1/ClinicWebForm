@@ -12,10 +12,18 @@ namespace ClinicWebForm.Models
         public int Id { get; set; }
 
         public virtual List<RelationshipStatus> RelationshipStatus { get; set; }
-        
+
         public string Name { get; set; }
         public string Surname { get; set; }
-        
+
+        public string FullName
+        {
+            get
+            {
+                return Name + Surname;
+            }
+        }
+
         [Display(Name = "Date Of Birth")]
         public DateTime DOB { get; set; }
 
@@ -26,5 +34,10 @@ namespace ClinicWebForm.Models
         public bool ReceivingGrant { get; set; }
         public bool Head { get; set; }
         public bool IsReferral { get; set; }
+
+        //public string FullName()
+        //{
+        //    return Name + " " + Surname;
+        //}
     }
 }

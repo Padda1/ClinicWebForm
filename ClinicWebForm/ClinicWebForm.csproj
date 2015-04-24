@@ -217,6 +217,7 @@
     <Compile Include="Controllers\HealthController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\HouseholdsController.cs" />
+    <Compile Include="Controllers\IndividualMembersController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MunicipalitiesController.cs" />
     <Compile Include="Controllers\ProvincesController.cs" />
@@ -415,6 +416,11 @@
     <Content Include="Views\Households\Details.cshtml" />
     <Content Include="Views\Households\Edit.cshtml" />
     <Content Include="Views\Households\Index.cshtml" />
+    <Content Include="Views\IndividualMembers\Create.cshtml" />
+    <Content Include="Views\IndividualMembers\Delete.cshtml" />
+    <Content Include="Views\IndividualMembers\Details.cshtml" />
+    <Content Include="Views\IndividualMembers\Edit.cshtml" />
+    <Content Include="Views\IndividualMembers\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

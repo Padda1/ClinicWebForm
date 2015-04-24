@@ -70,6 +70,20 @@ namespace ClinicWebForm.Utils
             return objHouseholds;
         }
 
+        public static List<IndividualMember> LoadMembers()
+        {
+            var objMembers = new List<IndividualMember>();
+
+            using (var dbContext = new ApplicationDbContext())
+            {
+                objMembers = dbContext.IndividualMembers.ToList();
+            }
+
+            objMembers.Insert(0, new IndividualMember { Id = 0, Name = "Select", Surname = "" });
+
+            return objMembers;
+        }
+
         public static CHW CurrentCHW()
         {
             var userManager = HttpContext.Current.GetOwinContext().GetUserManager<ApplicationUserManager>();

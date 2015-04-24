@@ -1,5 +1,25 @@
 ﻿@model ClinicWebForm.Models.Household
 
+<script src="~/Scripts/jquery-2.1.3.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        $('#phMember').hide();
+
+        $('#AddMember').click(function () {
+
+            if ($('#phMember').is(':visible') == false) {
+                $('#AddMember').val('Cancel');
+                $('#phMember').show();
+            }
+            else {
+                $('#AddMember').val('Add New');
+                $('#phMember').hide();
+            }
+        });
+    });
+</script>
+
 @{
     ViewBag.Title = "Create";
 }
@@ -54,6 +74,20 @@
                 @Html.EditorFor(model => model.Note, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.Note, "", new { @class = "text-danger" })
             </div>
+        </div>
+
+        <div class="form-group">
+            <label for="Members" class="control-label col-md-2">Members </label>
+            @Html.DropDownList("Members", new SelectList(ViewBag.Members, "Id", "FullName"), htmlAttributes: new { @class = "form-control dropdown-toggle col-md-9" })
+            <input class="btn btn-default col-md-1" type="button" id="AddMember" value="Add New" />
+        </div>
+
+        <div id="phMember" class="panel panel-default">
+            @using (Ajax.BeginForm("Create", "IndividualMembers", new AjaxOptions() { UpdateTargetId = "phMember" }))
+            {
+                @*@Html.AntiForgeryToken()*@
+                @Html.Action("Create", "IndividualMembers")
+            }
         </div>
 
         <div class="form-group">
