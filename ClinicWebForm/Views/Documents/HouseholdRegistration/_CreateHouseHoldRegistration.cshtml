@@ -1,16 +1,21 @@
 ﻿@model ClinicWebForm.Models.HouseholdRegistrationViewModel
 
-<script src="~/Scripts/jquery-1.10.2.js"></script>
+<script src="~/Scripts/jquery-2.1.3.js"></script>
 <script type="text/javascript">
     $(document).ready(function () {
 
+        $('#householdPlaceHolder').hide();
+
         $('#AddHousehold').click(function () {
 
-            $.get('/Households/Create', function (data) {
-
-                $('#householdPlaceHolder').html(data);
-                $('#householdPlaceHolder').fadeIn('fast');
-            });
+            if ($('#householdPlaceHolder').is(':visible') == false) {
+                $('#AddHousehold').val('Cancel');
+                $('#householdPlaceHolder').show();
+            }
+            else {
+                $('#AddHousehold').val('Add New');
+                $('#householdPlaceHolder').hide();
+            }
         });
     });
 </script>
@@ -45,11 +50,16 @@
         <div class="form-group">
             <label for="Households" class="control-label col-md-2">Household </label>
             @Html.DropDownList("Households", new SelectList(Model.Households, "Id", "RegistrationNumber"), htmlAttributes: new { @class = "form-control dropdown-toggle col-md-9" })
-            @*<input class="btn btn-default col-md-1" type="submit" value="Add New" formaction="@Url.Action("Create", "Households")"  />*@
-            <input class="btn btn-default col-md-1" type="submit" id="AddHousehold" value="Add New" />
+            <input class="btn btn-default col-md-1" type="button" id="AddHousehold" value="Add New" />
         </div>
 
-        <div id="householdPlaceHolder" class="panel panel-default" style="display:none;"></div>
+        <div id="householdPlaceHolder" class="panel panel-default">
+            @using (Ajax.BeginForm("Create", "Household", new AjaxOptions() { UpdateTargetId = "householdPlaceHolder" }))            
+            {
+                @*@Html.AntiForgeryToken()*@
+                @Html.Action("Create", "Households")
+            }
+        </div>
 
         @*<div class="form-group">
                 @Html.LabelFor(model => model.House, htmlAttributes: new { @class = "control-label col-md-2" })
