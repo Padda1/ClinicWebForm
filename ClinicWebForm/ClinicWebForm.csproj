@@ -217,10 +217,12 @@
     <Compile Include="Controllers\HealthController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\HouseholdsController.cs" />
+    <Compile Include="Controllers\HousesController.cs" />
     <Compile Include="Controllers\IndividualMembersController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MunicipalitiesController.cs" />
     <Compile Include="Controllers\ProvincesController.cs" />
+    <Compile Include="Controllers\QuestionCategoriesController.cs" />
     <Compile Include="Controllers\QuestionsController.cs" />
     <Compile Include="Controllers\TeamsController.cs" />
     <Compile Include="Controllers\VisitsController.cs" />
@@ -421,6 +423,16 @@
     <Content Include="Views\IndividualMembers\Details.cshtml" />
     <Content Include="Views\IndividualMembers\Edit.cshtml" />
     <Content Include="Views\IndividualMembers\Index.cshtml" />
+    <Content Include="Views\Houses\Create.cshtml" />
+    <Content Include="Views\Houses\Delete.cshtml" />
+    <Content Include="Views\Houses\Details.cshtml" />
+    <Content Include="Views\Houses\Edit.cshtml" />
+    <Content Include="Views\Houses\Index.cshtml" />
+    <Content Include="Views\QuestionCategories\Create.cshtml" />
+    <Content Include="Views\QuestionCategories\Delete.cshtml" />
+    <Content Include="Views\QuestionCategories\Details.cshtml" />
+    <Content Include="Views\QuestionCategories\Edit.cshtml" />
+    <Content Include="Views\QuestionCategories\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

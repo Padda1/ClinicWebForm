@@ -1,0 +1,83 @@
+﻿@model IEnumerable<ClinicWebForm.Models.House>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Electricity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PipedWater)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Toilet)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Fridge)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Rooms)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AmountOfGrants)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AmountOfWorkingMembers)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NameOfSchools)
+            </th>
+            <th></th>
+        </tr>
+    
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Electricity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PipedWater)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Toilet)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Fridge)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Rooms)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AmountOfGrants)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AmountOfWorkingMembers)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NameOfSchools)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+                @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+            </td>
+        </tr>
+    }
+    
+    </table>
+</body>
+</html>

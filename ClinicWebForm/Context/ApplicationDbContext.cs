@@ -49,5 +49,9 @@ namespace ClinicWebForm.Context
         public System.Data.Entity.DbSet<ClinicWebForm.Models.IndividualMember> IndividualMembers { get; set; }
 
         public System.Data.Entity.DbSet<ClinicWebForm.Models.Household> Households { get; set; }
+
+        public System.Data.Entity.DbSet<ClinicWebForm.Models.House> Houses { get; set; }
+
+        public System.Data.Entity.DbSet<ClinicWebForm.Models.QuestionCategory> QuestionCategories { get; set; }
     }
 }
