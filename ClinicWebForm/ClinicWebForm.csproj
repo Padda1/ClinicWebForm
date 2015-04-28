@@ -433,6 +433,7 @@
     <Content Include="Views\QuestionCategories\Details.cshtml" />
     <Content Include="Views\QuestionCategories\Edit.cshtml" />
     <Content Include="Views\QuestionCategories\Index.cshtml" />
+    <Content Include="Views\Shared\_CreateHouse.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

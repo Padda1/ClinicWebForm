@@ -13,6 +13,8 @@ namespace ClinicWebForm.Models
         [Required]
         public virtual CHW CHW { get; set; }
 
+        public int SelectedClinicId { get; set; }
+
         [Required]
         public virtual List<Clinic> Clinics { get; set; }
 

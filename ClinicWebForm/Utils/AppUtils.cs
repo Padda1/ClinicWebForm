@@ -92,6 +92,23 @@ namespace ClinicWebForm.Utils
             return user.CHW;
         }
 
+        public static List<QuestionCategory> LoadQuestionCategories()
+        {
+            var objQuestionCategories = new List<QuestionCategory>();
+
+            using (var dbContext = new ApplicationDbContext())
+            {
+                objQuestionCategories = dbContext.QuestionCategories.ToList();
+
+                foreach (var val in objQuestionCategories)
+                {
+                    val.Questions = dbContext.Questions.Where(q => q.QuestionCategory_Id == val.Id).ToList();
+                }
+            }
+
+            return objQuestionCategories;
+        }
+
         public static HouseholdRegistrationViewModel LoadHouseholdRegistration()
         {
             HouseholdRegistrationViewModel objHouseholdRegistration = new HouseholdRegistrationViewModel();
@@ -99,6 +116,7 @@ namespace ClinicWebForm.Utils
             objHouseholdRegistration.Wards = LoadWards();
             objHouseholdRegistration.CHW = CurrentCHW();
             objHouseholdRegistration.Households = LoadHouseholds();
+            objHouseholdRegistration.QuestionCategories = LoadQuestionCategories();
 
 
             return objHouseholdRegistration;

@@ -28,7 +28,7 @@ namespace ClinicWebForm.Controllers
             switch (id)
             {
                 case 1:
-                    return LoadHouseholdRegistration();
+                    return LoadHouseholdRegistration(null);
                 case 2:
                     return LoadIndividualAdultHealthRecord();
                 case 3:
@@ -44,12 +44,19 @@ namespace ClinicWebForm.Controllers
             }
         }
 
-        private PartialViewResult LoadHouseholdRegistration()
+        private PartialViewResult LoadHouseholdRegistration(HouseholdRegistrationViewModel model)
         {
             string viewName = "HouseholdRegistration/_CreateHouseHoldRegistration";
-            var householdRegForm = AppUtils.LoadHouseholdRegistration();
 
-            return PartialView(viewName, householdRegForm);
+            if (model == null)
+            {
+                var householdRegForm = AppUtils.LoadHouseholdRegistration();
+                return PartialView(viewName, householdRegForm);
+            }
+            else
+            {
+                return PartialView(viewName, model);
+            }
         }
 
         private PartialViewResult LoadIndividualAdultHealthRecord()
@@ -84,11 +91,19 @@ namespace ClinicWebForm.Controllers
             return PartialView(viewName);
         }
 
+        public ActionResult GetSelectedClinic(int id, HouseholdRegistrationViewModel model)
+        {
+            model.SelectedClinicId = id;
+
+            return LoadHouseholdRegistration(model);
+        }
+
         public async Task<ActionResult> SubmitHouseHoldRegistration(HouseholdRegistrationViewModel model)
         {
             if (ModelState.IsValid == false)
             {
-                return PartialView(model);
+                return LoadHouseholdRegistration(model);
+                //return PartialView(model);
             }
 
             using (var dbContext = new ApplicationDbContext())

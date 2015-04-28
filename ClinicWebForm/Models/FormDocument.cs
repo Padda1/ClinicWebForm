@@ -25,8 +25,7 @@ namespace ClinicWebForm.Models
 
         [Required]
         public Municipality Municipality { get; set; }
-
-        [Required]
+        
         public List<QuestionCategory> QuestionCategories { get; set; }
     }
 }
