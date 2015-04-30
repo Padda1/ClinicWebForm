@@ -41,9 +41,17 @@ namespace ClinicWebForm.Controllers
         // GET: Households/Create
         public ActionResult Create()
         {
-            ViewBag.Members = AppUtils.LoadMembers();
+            var household = new Household();
+            household.Members = AppUtils.LoadMembers();
 
-            return PartialView();
+            return PartialView(household);
+        }
+
+        public ActionResult AddMember(int id)
+        {
+            //??
+
+            return PartialView("Create");
         }
 
         // POST: Households/Create
