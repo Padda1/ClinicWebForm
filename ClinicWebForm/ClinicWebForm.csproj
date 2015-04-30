@@ -223,6 +223,7 @@
     <Compile Include="Controllers\MunicipalitiesController.cs" />
     <Compile Include="Controllers\ProvincesController.cs" />
     <Compile Include="Controllers\QuestionCategoriesController.cs" />
+    <Compile Include="Controllers\QuestionCategoryController.cs" />
     <Compile Include="Controllers\QuestionsController.cs" />
     <Compile Include="Controllers\TeamsController.cs" />
     <Compile Include="Controllers\VisitsController.cs" />
@@ -239,10 +240,12 @@
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ActionPerformed.cs" />
+    <Compile Include="Models\Answer.cs" />
     <Compile Include="Models\CHW.cs" />
     <Compile Include="Models\Clinic.cs" />
     <Compile Include="Models\Form.cs" />
     <Compile Include="Models\FormDocument.cs" />
+    <Compile Include="Models\FormDocumentViewModel.cs" />
     <Compile Include="Models\FormsViewModel.cs" />
     <Compile Include="Models\Health.cs" />
     <Compile Include="Models\House.cs" />
@@ -258,6 +261,7 @@
     <Compile Include="Models\OutreachTeamMonthlySummaryViewModel.cs" />
     <Compile Include="Models\Province.cs" />
     <Compile Include="Models\QuestionCategory.cs" />
+    <Compile Include="Models\QuestionCategoryViewModel.cs" />
     <Compile Include="Models\Questions.cs" />
     <Compile Include="Models\ReferralOutcome.cs" />
     <Compile Include="Models\ReferralReason.cs" />
@@ -423,17 +427,18 @@
     <Content Include="Views\IndividualMembers\Details.cshtml" />
     <Content Include="Views\IndividualMembers\Edit.cshtml" />
     <Content Include="Views\IndividualMembers\Index.cshtml" />
-    <Content Include="Views\Houses\Create.cshtml" />
-    <Content Include="Views\Houses\Delete.cshtml" />
-    <Content Include="Views\Houses\Details.cshtml" />
-    <Content Include="Views\Houses\Edit.cshtml" />
-    <Content Include="Views\Houses\Index.cshtml" />
     <Content Include="Views\QuestionCategories\Create.cshtml" />
     <Content Include="Views\QuestionCategories\Delete.cshtml" />
     <Content Include="Views\QuestionCategories\Details.cshtml" />
     <Content Include="Views\QuestionCategories\Edit.cshtml" />
     <Content Include="Views\QuestionCategories\Index.cshtml" />
     <Content Include="Views\Shared\_CreateHouse.cshtml" />
+    <Content Include="Views\Houses\Create.cshtml" />
+    <Content Include="Views\Houses\Delete.cshtml" />
+    <Content Include="Views\Houses\Details.cshtml" />
+    <Content Include="Views\Houses\Edit.cshtml" />
+    <Content Include="Views\Houses\Index.cshtml" />
+    <Content Include="Views\QuestionCategory\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

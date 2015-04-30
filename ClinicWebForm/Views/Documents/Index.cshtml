@@ -38,4 +38,84 @@
     </div>
 }
 <br />
-<div id="partialPlaceHolder" class="panel panel-default" style="display:none;"></div>
+<div id="partialPlaceHolder" class="panel panel-default" style="display:none;"><script src="/Scripts/jquery-2.1.3.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        $('#phHousehold').hide();
+        $('#HouseInfo').hide();
+
+        $('#AddHousehold').click(function () {
+
+            if ($('#phHousehold').is(':visible') == false) {
+                $('#AddHousehold').val('Cancel');
+                $('#phHousehold').show();
+            }
+            else {
+                $('#AddHousehold').val('Add New');
+                $('#phHousehold').hide();
+            }
+        });
+
+        //$('#AddHealthCareInfo').click(function () {
+
+        //    //$.post('/Documents/SelectedForm/' + selectedID, function (data) {
+
+        //    //    //$('#partialPlaceHolder').html(data);
+        //    //});
+
+        //    $('#HealthCareInfo').hide().fadeOut('fast');
+        //    $('#HouseInfo').show().fadeIn('fast');
+        //});
+
+
+    });
+</script>
+
+<div id="HealthCareInfo" class="panel panel-default">
+<form action="/Documents/SubmitHouseHoldRegistration" method="post"><input name="__RequestVerificationToken" type="hidden" value="oGymorqvBZRvdsqiA9gDlQQznwymRUw2eiDWerOcdTkux0nStIF1468h2Nk7vCpo6JTCQOcAffQwhiveXDFoLvDB_UDiRS8m1afoaR0IJQgNmw16r4JmPwtHBekKLovJIbGMg8T487Cbv5OBZkBT0Q2">        <div class="form-horizontal">
+            <h4>Household Registration</h4>
+            <hr>
+
+            <div class="form-group">
+                <label class="control-label col-md-2" for="CHW_Signature">CHW</label>
+                <div class="col-md-10">
+                    <input class="form-control text-box single-line" data-val="true" data-val-maxlength="The field CHW must be a string or array type with a maximum length of '100'." data-val-maxlength-max="100" data-val-minlength="The field CHW must be a string or array type with a minimum length of '2'." data-val-minlength-min="2" data-val-required="The CHW field is required." id="CHW_Signature" name="CHW.Signature" type="text" value="P Noke">
+                    <span class="field-validation-valid text-danger" data-valmsg-for="CHW.Signature" data-valmsg-replace="true"></span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="Clinics" class="control-label col-md-2">Clinics </label>
+                <select class="form-control dropdown-toggle col-md-10" data-val="true" data-val-required="The Clinics field is required." id="clinicsDropdown" name="Clinics"><option value="0">Select</option>
+<option value="1">Test Clinic</option>
+</select>
+            </div>
+
+            <div class="form-group">
+                <label for="Clinics" class="control-label col-md-2">Wards </label>
+                <select class="form-control dropdown-toggle col-md-10" data-val="true" data-val-required="The Wards field is required." id="Wards" name="Wards"><option value="0">Select</option>
+<option value="1">Test Ward</option>
+</select>
+            </div>
+
+            <div class="form-group">
+                <label for="Households" class="control-label col-md-2">Household </label>
+                <select class="form-control dropdown-toggle col-md-9" data-val="true" data-val-required="The Households field is required." id="Households" name="Households"><option value="0">Select</option>
+<option value="1">D 149  MORIPA NOMSA</option>
+<option value="2">HH 1</option>
+</select>
+                <input class="btn btn-default col-md-1" type="button" id="AddHousehold" value="Add New">
+            </div>
+
+            
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Create" class="btn btn-default">
+                </div>
+            </div>
+        </div>
+</form></div>
+
+</div>

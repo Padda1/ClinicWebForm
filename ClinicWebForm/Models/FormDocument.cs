@@ -11,21 +11,18 @@ namespace ClinicWebForm.Models
         [Key]
         public int Id { get; set; }
 
-        [Required]
         public Form Form { get; set; }
 
-        [Required]
         public Clinic Clinic { get; set; }
 
-        [Required]
         public Ward Ward { get; set; }
 
-        [Required]
         public Province Province { get; set; }
 
-        [Required]
         public Municipality Municipality { get; set; }
-        
-        public List<QuestionCategory> QuestionCategories { get; set; }
+
+        public Household Household { get; set; }
+
+        public List<Answer> Answers { get; set; }
     }
 }

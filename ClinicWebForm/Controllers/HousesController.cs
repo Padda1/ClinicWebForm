@@ -9,6 +9,7 @@ using System.Web;
 using System.Web.Mvc;
 using ClinicWebForm.Context;
 using ClinicWebForm.Models;
+using ClinicWebForm.Utils;
 
 namespace ClinicWebForm.Controllers
 {
@@ -40,7 +41,7 @@ namespace ClinicWebForm.Controllers
         // GET: Houses/Create
         public ActionResult Create()
         {
-            return View();
+            return PartialView();
         }
 
         // POST: Houses/Create
@@ -50,11 +51,16 @@ namespace ClinicWebForm.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Create([Bind(Include = "Id,Electricity,PipedWater,Toilet,Fridge,Rooms,AmountOfGrants,AmountOfWorkingMembers,NameOfSchools")] House house)
         {
+            int householdId = (int)TempData["HouseholdId"];
+
             if (ModelState.IsValid)
             {
+                house.Household = db.Households.Where(d => d.Id == householdId).First();
+
                 db.Houses.Add(house);
                 await db.SaveChangesAsync();
-                return RedirectToAction("Index");
+
+                return RedirectToAction("Create", "QuestionCategory");
             }
 
             return View(house);

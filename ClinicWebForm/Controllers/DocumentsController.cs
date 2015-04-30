@@ -51,6 +51,7 @@ namespace ClinicWebForm.Controllers
             if (model == null)
             {
                 var householdRegForm = AppUtils.LoadHouseholdRegistration();
+                TempData["CHW"] = householdRegForm.CHW.Id;
                 return PartialView(viewName, householdRegForm);
             }
             else
@@ -91,29 +92,50 @@ namespace ClinicWebForm.Controllers
             return PartialView(viewName);
         }
 
-        public ActionResult GetSelectedClinic(int id, HouseholdRegistrationViewModel model)
+        public async Task<ActionResult> SubmitHouseHoldRegistration(FormDocumentViewModel model)
         {
-            model.SelectedClinicId = id;
+            model.FormId = 1;
+            model.ClinicId = Convert.ToInt32(Request.Form["Clinics"].ToString());
+            model.WardId = Convert.ToInt32(Request.Form["Wards"].ToString());
+            model.HouseholdId = Convert.ToInt32(Request.Form["Households"].ToString());
 
-            return LoadHouseholdRegistration(model);
-        }
+            int chwId = Convert.ToInt32(TempData["CHW"].ToString());
 
-        public async Task<ActionResult> SubmitHouseHoldRegistration(HouseholdRegistrationViewModel model)
-        {
             if (ModelState.IsValid == false)
             {
-                return LoadHouseholdRegistration(model);
-                //return PartialView(model);
+                return LoadHouseholdRegistration(null);
             }
+
+            FormDocument document = new FormDocument();
 
             using (var dbContext = new ApplicationDbContext())
             {
-                //save items
+                document.Form = dbContext.Forms.Where(f => f.Id == model.FormId).First();
+                document.Clinic = dbContext.Clinics.Where(c => c.Id == model.ClinicId).First();
+                document.Ward = dbContext.Wards.Where(w => w.Id == model.WardId).First();
+
+                Visit visit = new Visit();
+                visit.CHW = dbContext.CHWs.Where(c => c.Id == chwId).First();
+                visit.VisitDate = DateTime.Now;
+
+                if (visit.FormDocuments == null)
+                {
+                    visit.FormDocuments = new List<FormDocument>();
+                }
+
+                document.Household = dbContext.Households.Where(hh => hh.Id == model.HouseholdId).First();
+                document.Household.Visits.Add(visit);
+
+                visit.FormDocuments.Add(document);
 
                 await dbContext.SaveChangesAsync();
             }
 
-            return RedirectToAction("Index");
+            TempData["FormId"] = model.FormId;
+            TempData["FormDocumentId"] = document.Id;
+            TempData["HouseholdId"] = document.Household.Id;
+
+            return RedirectToAction("Create", "Houses");
         }
 
         public ActionResult ListAll()

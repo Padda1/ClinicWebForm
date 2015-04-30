@@ -40,7 +40,7 @@ namespace ClinicWebForm.Controllers
         // GET: QuestionCategories/Create
         public ActionResult Create()
         {
-            return View();
+            return PartialView();
         }
 
         // POST: QuestionCategories/Create

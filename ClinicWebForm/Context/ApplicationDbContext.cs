@@ -53,5 +53,9 @@ namespace ClinicWebForm.Context
         public System.Data.Entity.DbSet<ClinicWebForm.Models.House> Houses { get; set; }
 
         public System.Data.Entity.DbSet<ClinicWebForm.Models.QuestionCategory> QuestionCategories { get; set; }
+
+        public System.Data.Entity.DbSet<ClinicWebForm.Models.FormDocument> FormDocuments { get; set; }
+
+        public System.Data.Entity.DbSet<ClinicWebForm.Models.Answer> Answers { get; set; }
     }
 }

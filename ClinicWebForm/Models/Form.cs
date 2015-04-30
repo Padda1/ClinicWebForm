@@ -15,6 +15,7 @@ namespace ClinicWebForm.Models
         [MinLength(2)]
         [Display(Name="Form")]
         public string FormName { get; set; }
+        public List<QuestionCategory> QuestionCategories { get; set; }
         public bool Active { get; set; }
     }
 }

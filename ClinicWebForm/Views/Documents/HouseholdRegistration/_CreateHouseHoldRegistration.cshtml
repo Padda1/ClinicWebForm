@@ -5,6 +5,7 @@
     $(document).ready(function () {
 
         $('#phHousehold').hide();
+        $('#HouseInfo').hide();
 
         $('#AddHousehold').click(function () {
 
@@ -17,18 +18,17 @@
                 $('#phHousehold').hide();
             }
         });
+
     });
 </script>
 
-<div id="main">
-    @using (Html.BeginForm())
+<div id="HealthCareInfo" class="panel panel-default">
+    @using (Html.BeginForm("SubmitHouseHoldRegistration","Documents",FormMethod.Post))
     {
         @Html.AntiForgeryToken()
-
         <div class="form-horizontal">
             <h4>Household Registration</h4>
             <hr />
-            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
             <div class="form-group">
                 @Html.LabelFor(model => model.CHW.Signature, htmlAttributes: new { @class = "control-label col-md-2" })
@@ -40,13 +40,11 @@
 
             <div class="form-group">
                 <label for="Clinics" class="control-label col-md-2">Clinics </label>
-                @*@Html.DropDownList("Clinics", new SelectList(Model.Clinics, "Id", "ClinicDescription"), htmlAttributes: new { @class = "form-control dropdown-toggle col-md-10" })*@
-                @Html.DropDownListFor(model => model.Clinics, new SelectList(Model.Clinics, "Id", "ClinicDescription"), htmlAttributes: new { @class = "form-control dropdown-toggle col-md-10" })
+                @Html.DropDownListFor(model => model.Clinics, new SelectList(Model.Clinics, "Id", "ClinicDescription"), htmlAttributes: new { @id = "clinicsDropdown", @class = "form-control dropdown-toggle col-md-10" })
             </div>
 
             <div class="form-group">
                 <label for="Clinics" class="control-label col-md-2">Wards </label>
-                @*@Html.DropDownList("Wards", new SelectList(Model.Wards, "Id", "WardDescription"), htmlAttributes: new { @class = "form-control dropdown-toggle col-md-10" })*@
                 @Html.DropDownListFor(model => model.Wards, new SelectList(Model.Wards, "Id", "WardDescription"), htmlAttributes: new { @class = "form-control dropdown-toggle col-md-10" })
             </div>
 
@@ -59,43 +57,15 @@
             <div id="phHousehold" class="panel panel-default">
                 @using (Ajax.BeginForm("Create", "Households", new AjaxOptions() { UpdateTargetId = "phHousehold" }))
                 {
-                    @*@Html.AntiForgeryToken()*@
                     @Html.Action("Create", "Households")
-                }
-            </div>
-
-            <div class="panel panel-default">
-                @*@using (Ajax.BeginForm("Create", "Houses", new AjaxOptions() { UpdateTargetId = "phHousehold" }))*@
-                @*@using (Html.BeginForm("Create", "Houses"))
-                    {
-                        @Html.AntiForgeryToken()
-                        @Html.Action("Create", "Houses")
-                    }*@
-
-                @Html.Action("Create", "Houses")
-            </div>
-
-            <div class="form-group">
-                @foreach (var questionCategories in Model.QuestionCategories)
-                {
-                    foreach (var question in questionCategories.Questions)
-                    {
-                        @Html.Label(question.QuestionDescription, htmlAttributes: new { @class = "control-label col-md-2" })
-                        @Html.EditorFor(model => question.QuestionValue, new { htmlAttributes = new { @class = "control-label col-md-10" } })
-                        <br />
-                    }
                 }
             </div>
 
             <div class="form-group">
                 <div class="col-md-offset-2 col-md-10">
-                    <input type="submit" value="Create" class="btn btn-default" formaction="@Url.Action("SubmitHouseHoldRegistration", "Documents")" />
+                    <input type="submit" value="Create" class="btn btn-default" />
                 </div>
             </div>
         </div>
     }
-</div>
-
-<div>
-    @Html.ActionLink("Back to List", "Index")
 </div>

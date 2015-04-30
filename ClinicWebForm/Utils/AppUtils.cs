@@ -109,6 +109,23 @@ namespace ClinicWebForm.Utils
             return objQuestionCategories;
         }
 
+        public static List<QuestionCategory> LoadQuestionCategories(int formId)
+        {
+            var objQuestionCategories = new List<QuestionCategory>();
+
+            using (var dbContext = new ApplicationDbContext())
+            {
+                objQuestionCategories = dbContext.QuestionCategories.Where(q => q.FormId == formId).ToList();
+
+                foreach (var val in objQuestionCategories)
+                {
+                    val.Questions = dbContext.Questions.Where(q => q.QuestionCategory_Id == val.Id).ToList();
+                }
+            }
+
+            return objQuestionCategories;
+        }
+
         public static HouseholdRegistrationViewModel LoadHouseholdRegistration()
         {
             HouseholdRegistrationViewModel objHouseholdRegistration = new HouseholdRegistrationViewModel();
