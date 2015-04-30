@@ -57,7 +57,8 @@ namespace ClinicWebForm.Controllers
             {
                 db.Households.Add(household);
                 await db.SaveChangesAsync();
-                return RedirectToAction("Index");
+
+                return RedirectToAction("SelectedForm", "Documents");
             }
 
             return View(household);

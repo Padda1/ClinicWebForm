@@ -54,7 +54,8 @@ namespace ClinicWebForm.Controllers
             {
                 db.IndividualMembers.Add(individualMember);
                 await db.SaveChangesAsync();
-                return RedirectToAction("Index");
+
+                return RedirectToAction("SelectedForm", "Documents");
             }
 
             return View(individualMember);

@@ -24,10 +24,10 @@
     ViewBag.Title = "Create";
 }
 
-@using (Html.BeginForm()) 
+@using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
         <h4>Household</h4>
         <hr />
@@ -82,14 +82,6 @@
             <input class="btn btn-default col-md-1" type="button" id="AddMember" value="Add New" />
         </div>
 
-        <div id="phMember" class="panel panel-default">
-            @using (Ajax.BeginForm("Create", "IndividualMembers", new AjaxOptions() { UpdateTargetId = "phMember" }))
-            {
-                @*@Html.AntiForgeryToken()*@
-                @Html.Action("Create", "IndividualMembers")
-            }
-        </div>
-
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
                 <input type="submit" value="Create" class="btn btn-default" />
@@ -98,6 +90,10 @@
     </div>
 }
 
-@*<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>*@
+<div id="phMember" class="panel panel-default">
+    @using (Ajax.BeginForm("Create", "IndividualMembers", new AjaxOptions() { UpdateTargetId = "phMember" }))
+    {
+        @*@Html.AntiForgeryToken()*@
+        @Html.Action("Create", "IndividualMembers")
+    }
+</div>

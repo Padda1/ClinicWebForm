@@ -20,7 +20,7 @@ namespace ClinicWebForm.Models
         {
             get
             {
-                return Name + Surname;
+                return Name + " " + Surname;
             }
         }
 
