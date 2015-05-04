@@ -10,7 +10,12 @@ namespace ClinicWebForm.Models
     {
         [Key]
         public int Id { get; set; }
+
+        [Required(ErrorMessage="{0} is required.")]
+        [Display(Name = "Respondent")]
+        [MinLength(2)]
         public string RespondentValue { get; set; }
+
         public bool Active { get; set; }
     }
 }

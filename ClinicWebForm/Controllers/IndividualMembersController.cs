@@ -40,6 +40,12 @@ namespace ClinicWebForm.Controllers
         // GET: IndividualMembers/Create
         public ActionResult Create()
         {
+            List<SelectListItem> gender = new List<SelectListItem>();
+            gender.Add(new SelectListItem() { Value = "NULL", Text = "Select" });
+            gender.Add(new SelectListItem() { Value = "Male",Text = "Male"});
+            gender.Add(new SelectListItem() { Value = "Female", Text = "Female" });
+
+            ViewBag.Gender = gender;
             return PartialView();
         }
 

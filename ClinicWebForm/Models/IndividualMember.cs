@@ -13,9 +13,13 @@ namespace ClinicWebForm.Models
 
         public virtual List<RelationshipStatus> RelationshipStatus { get; set; }
 
+        [Display(Name = "Name")]
         public string Name { get; set; }
+
+        [Display(Name = "Surname")]
         public string Surname { get; set; }
 
+        [Display(Name = "Fullname")]
         public string FullName
         {
             get
@@ -27,17 +31,25 @@ namespace ClinicWebForm.Models
         [Display(Name = "Date Of Birth")]
         public DateTime DOB { get; set; }
 
+        [Display(Name = "Age")]
         public int Age { get; set; }
-        public string Gender { get; set; }
-        public string Tel { get; set; }
-        public int BirthWeight { get; set; }
-        public bool ReceivingGrant { get; set; }
-        public bool Head { get; set; }
-        public bool IsReferral { get; set; }
 
-        //public string FullName()
-        //{
-        //    return Name + " " + Surname;
-        //}
+        [Display(Name = "Gender")]
+        public string Gender { get; set; }
+
+        [Display(Name = "Contact Number")]
+        public string Tel { get; set; }
+
+        [Display(Name = "BirthWeight")]
+        public int BirthWeight { get; set; }
+
+        [Display(Name = "Receiving Grant")]
+        public bool ReceivingGrant { get; set; }
+
+        [Display(Name = "Head Member")]
+        public bool Head { get; set; }
+
+        [Display(Name = "Is Referral")]
+        public bool IsReferral { get; set; }
     }
 }
