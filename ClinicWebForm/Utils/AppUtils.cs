@@ -163,10 +163,14 @@ namespace ClinicWebForm.Utils
             return objIndividualHealthRecord;
         }
 
-        public static IndividualAdultHealthRecordViewModel LoadReferral()
+        public static ReferralViewModel LoadReferral()
         {
-            IndividualAdultHealthRecordViewModel objIndividualHealthRecord = new IndividualAdultHealthRecordViewModel();
-            return objIndividualHealthRecord;
+            ReferralViewModel objReferral = new ReferralViewModel();
+            objReferral.Clinics = LoadClinics();
+            objReferral.Wards = LoadWards();
+            objReferral.CHW = CurrentCHW();
+
+            return objReferral;
         }
 
         public static IndividualAdultHealthRecordViewModel LoadVisitSummary()

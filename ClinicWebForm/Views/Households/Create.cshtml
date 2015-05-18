@@ -86,8 +86,10 @@
 
         <div class="form-group">
             <label for="Members" class="control-label col-md-2">Members </label>
-            @Html.DropDownList("Members", new SelectList(Model.Members, "Id", "FullName"), htmlAttributes: new { @class = "form-control dropdown-toggle col-md-7" })
-            <input class="btn btn-default col-md-1" type="button" id="AddMember" value="Add" />
+            <div class="col-md-4">
+                @Html.DropDownList("Members", new SelectList(Model.Members, "Id", "FullName"), htmlAttributes: new { @class = "form-control dropdown-toggle" })                
+            </div>
+            <input class="btn btn-default col-md-2" type="button" id="AddMember" value="Add" />
             <input class="btn btn-default col-md-2" type="button" id="AddNewMember" value="Add New Member" />
         </div>
 
@@ -100,7 +102,7 @@
 }
 
 <div id="phMember" class="panel panel-default">
-    @using (Html.BeginForm("Create", "IndividualMembers",FormMethod.Post))
+    @using (Html.BeginForm("Create", "IndividualMembers", FormMethod.Post))
     {
         @Html.Action("Create", "IndividualMembers")
     }

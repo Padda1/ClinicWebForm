@@ -83,7 +83,8 @@ namespace ClinicWebForm.Controllers
         private PartialViewResult LoadReferral()
         {
             string viewName = "Referral/_CreateReferralForm";
-            return PartialView(viewName);
+            var objReferral = AppUtils.LoadReferral();
+            return PartialView(viewName,objReferral);
         }
 
         private PartialViewResult LoadVisitSummary()
