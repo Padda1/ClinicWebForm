@@ -7,5 +7,6 @@ namespace ClinicWebForm.Models
 {
     public class ReferralReason
     {
+
     }
 }

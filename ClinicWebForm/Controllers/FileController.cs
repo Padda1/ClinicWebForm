@@ -48,19 +48,49 @@ namespace ClinicWebForm.Controllers
 
         private void ImportFileIntoDatabase(string path)
         {
-            DataTable data = LoadIntoCollection(path);
-
-            foreach(DataRow row in data.Rows)
+            try
             {
-                using (var context = new ApplicationDbContext())
-                {
-                    Clinic clinic = new Clinic();
-                    clinic.ClinicDescription = row["ClinicName"].ToString();
-                    clinic.Active = true;
+                DataTable data = LoadIntoCollection(path);
+                DataView view = new DataView(data);
+                DataTable distinctValues = view.ToTable(true, "ClinicName");
 
-                    context.Clinics.Add(clinic);
-                    context.SaveChanges();
+                foreach (DataRow row in distinctValues.Rows)
+                {
+                    using (var context = new ApplicationDbContext())
+                    {
+                        if (row["ClinicName"].ToString() != "ClinicName")
+                        {
+                            Clinic clinic = new Clinic();
+                            clinic.ClinicDescription = row["ClinicName"].ToString();
+                            clinic.Active = true;
+
+                            context.Clinics.Add(clinic);
+                            context.SaveChanges(); 
+                        }
+                    }
                 }
+
+                distinctValues = view.ToTable(true, "WardNo");
+
+                foreach (DataRow row in distinctValues.Rows)
+                {
+                    using (var context = new ApplicationDbContext())
+                    {
+                        if (row["WardNo"].ToString() != "WardNo")
+                        {
+                            Ward ward = new Ward();
+                            ward.WardDescription= row["WardNo"].ToString();
+                            ward.Active = true;
+
+                            context.Wards.Add(ward);
+                            context.SaveChanges();
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                
             }
         }
     }
