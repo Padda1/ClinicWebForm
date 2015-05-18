@@ -30,6 +30,20 @@
                 @Html.DropDownListFor(model => model.Wards, new SelectList(Model.Wards, "Id", "WardDescription"), htmlAttributes: new { @class = "form-control dropdown-toggle" })
             </div>
         </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Referral.ReferredTo, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Referral.ReferredTo, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Referral.ReferredTo, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        @*<div class="form-group">
+            @Html.LabelFor(model => model.Referral.)
+            <div class="col-md-10">
+            </div>
+        </div>*@
     </div>
 
 

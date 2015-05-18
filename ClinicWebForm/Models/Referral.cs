@@ -14,7 +14,14 @@ namespace ClinicWebForm.Models
         public virtual Visit Visit { get; set; }
         public virtual ReferralReason ReferralReason { get; set; }
         public virtual ReferralOutcome ReferralOutcome { get; set; }
+
+        [Required(ErrorMessage = "{0} is required.")]
+        [Display(Name = "Referred To")]
         public string ReferredTo { get; set; }
+
+        [Required(ErrorMessage="{0} is required.")]
+        [DataType(DataType.Date)]
+        [Display(Name = "Back Referral Received")]
         public DateTime BackReferralReceived { get; set; }
     }
 }
