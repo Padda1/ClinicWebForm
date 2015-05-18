@@ -100,7 +100,7 @@
 }
 
 <div id="phMember" class="panel panel-default">
-    @using (Ajax.BeginForm("Create", "IndividualMembers", new AjaxOptions() { UpdateTargetId = "phMember" }))
+    @using (Html.BeginForm("Create", "IndividualMembers",FormMethod.Post))
     {
         @Html.Action("Create", "IndividualMembers")
     }
