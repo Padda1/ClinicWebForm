@@ -88,7 +88,7 @@ namespace ClinicWebForm.Controllers
                     }
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 
             }
