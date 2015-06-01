@@ -20,7 +20,7 @@ namespace ClinicWebForm.Models
         public string ReferredTo { get; set; }
 
         [Required(ErrorMessage="{0} is required.")]
-        [DataType(DataType.Date)]
+        [DataType(System.ComponentModel.DataAnnotations.DataType.Date)]
         [Display(Name = "Back Referral Received")]
         public DateTime BackReferralReceived { get; set; }
     }

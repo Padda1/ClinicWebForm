@@ -253,6 +253,9 @@
     <Compile Include="Models\Answer.cs" />
     <Compile Include="Models\CHW.cs" />
     <Compile Include="Models\Clinic.cs" />
+    <Compile Include="Models\DataType.cs" />
+    <Compile Include="Models\Document.cs" />
+    <Compile Include="Models\Field.cs" />
     <Compile Include="Models\Form.cs" />
     <Compile Include="Models\FormDocument.cs" />
     <Compile Include="Models\FormDocumentViewModel.cs" />
@@ -270,6 +273,7 @@
     <Compile Include="Models\NextOfKin.cs" />
     <Compile Include="Models\OutreachTeamMonthlySummaryViewModel.cs" />
     <Compile Include="Models\Province.cs" />
+    <Compile Include="Models\Question.cs" />
     <Compile Include="Models\QuestionCategory.cs" />
     <Compile Include="Models\QuestionCategoryViewModel.cs" />
     <Compile Include="Models\Questions.cs" />

@@ -22,7 +22,7 @@ namespace ClinicWebForm.Models
 
         [Required]
         [MinLength(2)]
-        [DataType(DataType.MultilineText)]
+        [DataType(System.ComponentModel.DataAnnotations.DataType.MultilineText)]
         public string Address { get; set; }
 
         [Display(Name = "All Members Registered")]
@@ -33,7 +33,7 @@ namespace ClinicWebForm.Models
         
         public virtual List<IndividualMember> Members { get; set; }
 
-        [DataType(DataType.MultilineText)]
+        [DataType(System.ComponentModel.DataAnnotations.DataType.MultilineText)]
         public string Note { get; set; }
     }
 }

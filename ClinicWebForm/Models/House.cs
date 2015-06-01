@@ -35,7 +35,7 @@ namespace ClinicWebForm.Models
         public int AmountOfWorkingMembers { get; set; }
 
         [Display(Name = "Schools")]
-        [DataType(DataType.MultilineText)]
+        [DataType(System.ComponentModel.DataAnnotations.DataType.MultilineText)]
         public string NameOfSchools { get; set; }
     }
 }

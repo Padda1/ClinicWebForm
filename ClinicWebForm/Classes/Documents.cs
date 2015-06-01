@@ -15,7 +15,7 @@ namespace ClinicWebForm.Classes
         public string HouseholdRegistrationForm(Health health)
         {
             Microsoft.Office.Interop.Word.Application appWord = new Microsoft.Office.Interop.Word.Application();
-            Document WordDoc = appWord.Documents.Open(AppUtils.WordTemplateDirectory + @"HouseholdRegistrationForm.docx", ReadOnly: false, Visible: true);
+            Microsoft.Office.Interop.Word.Document WordDoc = appWord.Documents.Open(AppUtils.WordTemplateDirectory + @"HouseholdRegistrationForm.docx", ReadOnly: false, Visible: true);
 
             WordDoc.Activate();
 
