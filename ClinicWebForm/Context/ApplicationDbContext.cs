@@ -57,5 +57,7 @@ namespace ClinicWebForm.Context
         public System.Data.Entity.DbSet<ClinicWebForm.Models.FormDocument> FormDocuments { get; set; }
 
         public System.Data.Entity.DbSet<ClinicWebForm.Models.Answer> Answers { get; set; }
+
+        public System.Data.Entity.DbSet<ClinicWebForm.Models.Document> Documents { get; set; }
     }
 }
