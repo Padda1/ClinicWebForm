@@ -1,81 +1,48 @@
 ﻿@model ClinicWebForm.Models.Document
 
 @{
-    Layout = null;
+    ViewBag.Title = @Model.Form.FormName;
 }
 
-<!DOCTYPE html>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
 
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>@Model.Form.FormName</title>
+    <div class="form-horizontal">
+        <h4>@Model.Form.FormName</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
-    <script type="text/javascript">
-        $(function () {
-            $('#datetimepicker1').datetimepicker();
-        });
-    </script>
-</head>
-<body>
-    @using (Html.BeginForm())
-    {
-        @Html.AntiForgeryToken()
-
-        <div class="form-horizontal">
-            <h4>@Model.Form.FormName</h4>
-            <hr />
-            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-
-            @foreach (var item in Model.Fields)
-            {
-                <div class="form-group row">
-                    @Html.LabelFor(model => item.FieldValue, item.FieldType)
-                    <div class="col-md-offset-2 col-md-10">
-                        @Html.EditorFor(model => item.FieldValue)
-                    </div>
-                </div>
-            }
-
-            @foreach (var item in Model.Questions)
-            {
-                switch (item.DataType.DataTypeValue)
-                {
-                    case "Date":
-                        <div class="form-group row">
-                            @Html.LabelFor(model => item.QuestionDescription, item.QuestionDescription)
-                            <div class="col-md-offset-2 col-md-10">
-                                <div class='input-group date' id='datetimepicker1'>
-                                    <input type='text' class="form-control" />
-                                    <span class="input-group-addon">
-                                        <span class="glyphicon glyphicon-calendar"></span>
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-                        break;
-                    default:
-                    <div class="form-group row">
-                        @Html.LabelFor(model => item.QuestionDescription, item.QuestionDescription)
-                        <div class="col-md-offset-2 col-md-10">
-                            @Html.EditorFor(model => item.Answer)
-                        </div>
-                    </div>
-                        break;
-                }
-            }
-
-            <div class="form-group row">
-                <div class="col-md-offset-2 col-md-10">
-                    <input type="submit" value="Create" class="btn btn-default" />
+        <div class="panel panel-default">
+            <div class="form-group">
+                @Html.LabelFor(model => model.Form.FormName, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Form.FormName, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Form.FormName, "", new { @class = "text-danger" })
                 </div>
             </div>
         </div>
-    }
+        <div class="panel panel-default">
+            <h4>Fields</h4>
+        </div>
 
-    <div>
-        @Html.ActionLink("Back to List", "Index")
+        <div class="panel panel-default">
+            <h4>Questions</h4>
+
+            <div class="form-group">
+                <label for="Questions" class="control-label col-md-2">Questions </label>
+                <div class="col-md-8">
+                    @Html.DropDownListFor(model => model.Questions, new SelectList(Model.Questions, "Id", "QuestionDescription"), htmlAttributes: new { @id = "questionsDropdown", @class = "form-control dropdown-toggle" })
+                    @Html.ValidationMessageFor(model => model.Questions, "", new { @class = "text-danger" })
+                </div>
+                <input class="btn btn-default col-md-1" type="button" id="AddQuestion" value="Add New" />
+            </div>
+
+            @*<div class="panel panel-default" id="CreateQuestion"></div>*@
+        </div>
     </div>
-</body>
+}
 
-</html>
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
