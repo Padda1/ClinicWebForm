@@ -52,7 +52,7 @@ namespace ClinicWebForm.Controllers
             objQuestions.Add(new Question { Id = 1, DataType = new DataType { Id = 1, DataTypeValue = "Date", Active = true }, QuestionDescription = "Is this a question?", Answer = "", Active = true });
             objDocument.Questions = objQuestions;
 
-            return PartialView(objDocument);
+            return View(objDocument);
         }
 
         // POST: Document/Create

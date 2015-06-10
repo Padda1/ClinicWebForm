@@ -1,8 +1,8 @@
 ﻿@model ClinicWebForm.Models.Document
 
-@{
+@*@{
     ViewBag.Title = @Model.Form.FormName;
-}
+}*@
 
 @using (Html.BeginForm())
 {
@@ -27,7 +27,7 @@
             <div class="panel panel-default" id="addedFields">
                 @foreach(var item in Model.Fields)
                 {
-                    Html.CheckBoxFor(model => Convert.ToBoolean(item.FieldValue));
+                    Html.CheckBox(item.FieldType, false);
                 }
             </div>
         </div>
