@@ -1,8 +1,10 @@
 ﻿@model ClinicWebForm.Models.Document
 
-@*@{
-    ViewBag.Title = @Model.Form.FormName;
-}*@
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
 
 @using (Html.BeginForm())
 {
@@ -25,8 +27,9 @@
         <div class="panel panel-default">
             <h4>Fields</h4>
             <div class="panel panel-default" id="addedFields">
-                @foreach(var item in Model.Fields)
+                @foreach (var item in Model.Fields)
                 {
+                    Html.Label(item.FieldType);
                     Html.CheckBox(item.FieldType, false);
                 }
             </div>
@@ -47,7 +50,7 @@
             @*<div class="panel panel-default" id="CreateQuestion"></div>*@
 
             <div class="panel panel-default" id="addedQuestions">
-                
+
             </div>
         </div>
     </div>
