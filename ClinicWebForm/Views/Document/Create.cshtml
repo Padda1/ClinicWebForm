@@ -29,8 +29,13 @@
             <div class="panel panel-default" id="addedFields">
                 @foreach (var item in Model.Fields)
                 {
-                    Html.Label(item.FieldType);
-                    Html.CheckBox(item.FieldType, false);
+                    <div class="form-group">
+                        @Html.Label(item.FieldType, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.CheckBox(item.FieldType, false, htmlAttributes: new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.Form.FormName, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
                 }
             </div>
         </div>
@@ -44,14 +49,20 @@
                     @Html.DropDownListFor(model => model.Questions, new SelectList(Model.Questions, "Id", "QuestionDescription"), htmlAttributes: new { @id = "questionsDropdown", @class = "form-control dropdown-toggle" })
                     @Html.ValidationMessageFor(model => model.Questions, "", new { @class = "text-danger" })
                 </div>
-                <input class="btn btn-default col-md-1" type="button" id="AddQuestion" value="Add New" />
+                <input class="btn btn-default col-md-1" type="button" id="AddQuestion" value="Add" />
             </div>
 
             @*<div class="panel panel-default" id="CreateQuestion"></div>*@
 
-            <div class="panel panel-default" id="addedQuestions">
+            @*<div class="panel panel-default" id="addedQuestions">
 
-            </div>
+                </div>*@
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Create" class="btn btn-default" />
         </div>
     </div>
 }
